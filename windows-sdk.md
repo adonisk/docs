@@ -60,7 +60,6 @@ Prepare device method should be invoked to prepare the Ezetap device for card tr
 
 > Note: If the EzeAPI returns an error related to *device not ready* during postPayment() transaction, please implement an option for the user to prepare the device as needed.
 
-
 **TakePayment()**
 
 	    public EzeResult takePayment(PaymentType type, double amount, PaymentOptions options) 

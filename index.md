@@ -1,3 +1,7 @@
+---
+title: Document Center
+---
+
 # Ezetap Extensibility Framework #
 
 Ezetap Extensibility Framework is aimed at enabling businesses to leverage the capabilities of Ezetap's mPOS system to manage Card, Cash and Cheque payments, easily integrated into their existing mobile, tablet and desktop applications via a standard SDK integration.
