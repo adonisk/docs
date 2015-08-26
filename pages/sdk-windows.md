@@ -1,5 +1,5 @@
 ---
-title: Windows SDK
+title: 4. Windows SDK
 description: Integrating a windows application using Ezetap .NET sdk
 type: Client SDK
 layout: default

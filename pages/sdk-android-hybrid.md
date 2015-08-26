@@ -1,5 +1,5 @@
 ---
-title: Android Hybrid
+title: 3. Android Hybrid
 description: Integrating a hybrid HTML5 app (Web view) into Ezetap using JS
 type: Client SDK
 layout: default

@@ -1,5 +1,5 @@
 ---
-title: Android Native
+title: 2. Android Native
 description: Integrating a native Android app into Ezetap using Android SDK
 type: Client SDK
 layout: default
