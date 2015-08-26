@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+  
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<title>
+			 Android SDK 
+		</title>
+    
+		
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/js/bootstrap.min.js"></script>
+  </head>
+
+
+
+  <body>
+
+    
+<header class="site-header">
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      	<a class="navbar-brand" href="/"><img alt="Brand" src="/images/eze-logo-white.png"></a>
+    	</div>
+
+    	<!-- Collect the nav links, forms, and other content for toggling -->
+    	<div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+      		<li><h3><span style="color:white">SDK Documentation</span></h3></li>
+				</ul>
+    		<ul class="nav navbar-nav navbar-right">
+					
+						
+        			<li><a href="/pages/android-html5.html">Android HTML5</a></li>
+						
+					
+						
+        			<li><a href="/pages/android-sdk.html">Android SDK</a></li>
+						
+					
+						
+					
+						
+        			<li><a href="/css/main.css"></a></li>
+						
+					
+						
+        			<li><a href="/pages/windows-sdk.html">Windows SDK</a></li>
+						
+					
+				
+					<li><a href="" style="color:white"><i class="glyphicon glyphicon-home"></i> Home</a>
+					</li>
+    		</ul>
+    	</div>
+  	</div>
+	</nav>
+</header>
+
+    <div class="container container-fluid">
+			<h2 id="what-you-need-to-get-started">What you need to get started</h2>
+
+<ol>
+  <li>Android development environment</li>
+  <li>Android phone that can connect to internet</li>
+  <li>This documentation</li>
+  <li>Ezetap license key to put in your code
+    <ul>
+      <li>Or login credentials to Ezetap service</li>
+    </ul>
+  </li>
+  <li>Ezetap device to test</li>
+</ol>
+
+<h2 id="components">Components</h2>
+
+<p>The Ezetap SDK package consists of the following components.</p>
+
+<ul>
+  <li>The Ezetap SDK package delivered as <a href="ezetap_sdk_package_2_0.zip"><code>ezetap_sdk_package_2_0.zip</code></a>. This package contains the following:
+    <ol>
+      <li><code>ezetap_sdk_2_0_buildnumber.jar</code> : This jar contains the necessary binaries required to integrate Ezetap Payment into your application. This jar is to be added into the libs directory of your Android application.</li>
+      <li><code>ezetap_sdk_sample_code_2_0_buildnumber.zip</code> : This archive file contains an Android app sample that demonstrates the usage of the Ezetap SDK.</li>
+      <li><code>ezetap_sdk_2_0_buildnumber.buildnumber</code> : an empty marker file denoting the version number and build number of the Ezetap SDK.</li>
+      <li><a href="javadoc/index.html"><code>javadoc</code></a> :  A directory containing developer documentation in Javadoc format for the Ezetap APIs available, using which integration is to be done.</li>
+    </ol>
+  </li>
+  <li>A document containing <em>AppKey</em> and other <em>ORG</em> specific information for your organization.</li>
+  <li><code>Ezetap Android SDK Implementation Guide</code> : this document.</li>
+</ul>
+
+<h2 id="acquiring-the-ezetap-sdk">Acquiring the Ezetap SDK</h2>
+<p>Please <a href="ezetap_sdk_package_2_0_5.zip">download the latest build of the Ezetap SDK</a>. Ezetap 
+team will set up the necessary Merchant credentials, AppKey and other details for you.</p>
+
+<h2 id="setting-up-your-development-environment">Setting up your Development Environment</h2>
+<p>Upon receiving the Ezetap SDK package, unzip the contents into a directory of choice. Add <code>ezetap_sdk_2_0_buildnumber.jar</code> to the <code>libs</code> directory of your Android Project.</p>
+
+<p><img src="eclipse_sdk_layout.png" alt="image" /></p>
+
+<p>You are now ready to invoke Ezetap APIs using which you can integrate Ezetap’s Card, Cash and other capabilities into your application.</p>
+
+<h2 id="ezetap-apis">Ezetap APIs</h2>
+<p>This section gives a brief introduction to the APIs available as part of the Ezetap SDK.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="javadoc/com/ezetap/sdk/EzetapApiConfig.html"><code>EzetapApiConfig</code></a></td>
+      <td>This is the basic Config object to be used for creating a handle to the <code>EzetapPayApi</code>. A populated instance of this class, containing your org-specific settings/params is to be used to obtain a handle to the <code>EzetapPayApi</code>, using which you may invoke Ezetap APIs.</td>
+    </tr>
+    <tr>
+      <td><a href="javadoc/com/ezetap/sdk/EzetapPayApis.html"><code>EzetapPayApis</code></a></td>
+      <td>Calling <code>create()</code> or <code>create(EzetapApiConfig)</code> creates and returns a handle to <code>EzetapPayApi</code>.  This may be used to invoke Ezetap APIs.</td>
+    </tr>
+    <tr>
+      <td><a href="javadoc/com/ezetap/sdk/EzetapPayApi.html"><code>EzetapPayApi</code></a></td>
+      <td>Upon getting a handle to an instance of this class using the above APIs, you may invoke Ezetap APIs</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note: Please refer to the <a href="javadoc/index.html">complete API Javadoc</a> provided as part of the Ezetap SDK package to
+learn more about the Ezetap APIs. The accompanied sample code contains examples to help understand how to invoke the Ezetap APIs.</p>
+
+<h2 id="handling-responses">Handling Responses</h2>
+
+<p>All Ezetap APIs respond with the follwing result codes</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Result Code</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>EzeConstants.RESULT_SUCCESS</code></td>
+      <td>Value = 2001 Indicates SUCCESS of API call</td>
+    </tr>
+    <tr>
+      <td><code>EzeConstants.RESULT_FAILED</code></td>
+      <td>Value = 3001 Indicates FAILURE</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In cases where the API returns data to the calling application, the <code>Intent</code> returned will contain the JSON response. This JSON may be 
+retrieved as a <code>String Extra</code> from the <code>Intent</code>, using the key <code>EzeConstants.KEY_RESPONSE_DATA</code> and parsed into a <code>JSONObject</code>. The JSON contains the following.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Result</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>success</td>
+      <td>Value = true or false. True indicating success of API and false indicating failure</td>
+    </tr>
+    <tr>
+      <td>errorCode</td>
+      <td>Value = ezetap_error_code. This is to be quoted to Ezetap Support whilst communicating any issue.</td>
+    </tr>
+    <tr>
+      <td>errorMessage</td>
+      <td>Value = A description of the error This is to be quoted to Ezetap Support in conjunction with the errorCode above</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Hint: For Transaction APIs, you may create an instance of <a href="javadoc/com/ezetap/sdk/TransactionDetails.html"><code>TransactionDetails</code></a> using the JSON data for ease of use.</p>
+
+<h2 id="updating-ezetap-service-app">Updating Ezetap Service App</h2>
+<p>Access to the Ezetap APIs is provided and facilited by the Ezetap Service App. The Ezetap SDK provides the API interface 
+necessary to call Ezetap APIs via the Service App. As and when Ezetap rectifies issues and enhances the Service App, updates are made available to Ezetap SDK users.</p>
+
+<p>It is recommended that calling apps periodically check for updates and stay current by calling the [<code>checkForUpdate</code>](javadoc/com/ezetap/sdk/EzetapPayApi.html#checkForUpdate(android.app.Activity%2C%20int%2C%20java.lang.String) API provided by the Ezetap SDK. You may transform the JSON response into an instance of <a href="javadoc/com/ezetap/sdk/EzetapAppUpdateResponse.html"><code>EzetapAppUpdateResponse</code></a> and based on the severity of the update, choose to update. The Service App may be updated by creating an instance of <a href="javadoc/com/ezetap/sdk/EzetapDownloadUtils.html"><code>EzetapDownloadUtils</code></a> and calling <code>start()</code>. This will download the latest service app and update it on the mobile device.</p>
+
+<p>```java</p>
+
+<p>void checkForUpdate(Activity context, int reqCode, String username);
+   /**
+    * Use this API to check if there is an update to the Ezetap
+    * Service App. It is recommended that this API be called by
+    * application implementations periodically.
+    * For example, you may choose to call this API at application
+    * start time or at login time.
+    */
+```</p>
+
+<h3 id="ezetapappupdateresponse">EzetapAppUpdateResponse</h3>
+<p>A bean representation of the response from the Ezetap server to the <code>checkForUpdate</code> API call. Please refer to the <a href="javadoc/index.html">javadoc</a> to know more about the attributes available.</p>
+
+<h3 id="ezetapdownloadutils">EzetapDownloadUtils</h3>
+<p>Provides utilities to download and install updates to the Ezetap Service App. Create an instance of <a href="javadoc/com/ezetap/sdk/EzetapDownloadUtils.html"><code>EzetapDownloadUtils</code></a> and call the <code>start()</code> method. This will initiate the download and prompt the user to update, if one is found.</p>
+
+<h2 id="incomplete-transactions">Incomplete Transactions</h2>
+
+<p>The Ezetap Service App and SDK combination provides for handling of incomplete transactions and transactions for which no response is received.  Failure to receive a response may occur due to</p>
+
+<ul>
+  <li>a time out on the mobile device, wherein no response is received and there is no knowledge of whether the transaction succeeded or not</li>
+  <li>a network outage on the mobile device because of which the response was not received, although the request did go through</li>
+  <li>any other environmental condition/reason preventing the mobile device from receiving a response from the server</li>
+</ul>
+
+<p>In the above cases, the Ezetap Service app prompts the user with a message <code>Response Not Received</code> and provides the user with ability to <code>Retrieve Transaction</code>. If the transaction was a success, the user may complete it as part of the normal flow and obtain the customer’s signature to complete the transaction. If there was a failure in the transaction, the user is informed accordingly and may proceed to retry the transaction.  Incomplete transactions may occur due to</p>
+
+<ul>
+  <li>an application crash</li>
+  <li>inadvertant app closure</li>
+  <li>inadvertantly hitting the back button when the transaction may already have reached Ezetap</li>
+</ul>
+
+<p>In all the above cases, the Ezetap service app prompts the user that an <code>Incomplete Transaction</code> has been detected. The user is expected to tap <code>Retrieve Transaction</code> to check the status of the transaction and retrieve it. The user can then complete it, in case of transaction success and obtain the customer’s signature.  The Ezetap SDK also provides an API that calling applications may choose to call at any time to check for and go through the process for an incomplete transaction, if found.</p>
+
+<p><code>java
+  void checkForIncompleteTransaction(Activity context, int reqCode, String username);
+  /**
+   * Use this API to check if there is an incomplete transaction.
+   * Any card transaction that was initiated, but failed to receive
+   * a response due to any of the conditions listed above will be
+   * detected and the user will be guided through the steps to
+   * complete the transaction.
+   */
+</code></p>
+
+<h3 id="recommendation">Recommendation</h3>
+
+<p>Ezetap strongly recommends that application implementations leverage the use of the above API to check for any incomplete previous transactions.</p>
+
+<p>This is especially important in cases where Ezetap is primarily used for Card payments only. While the check for an incomplete transaction will detect any pending incomplete transactions, it will do so ONLY when Ezetap APIs are invoked. To alleviate any anomalies, application implementations are strongly recommended to implement this API call at appropriate points in the app flow, for example:</p>
+
+<ul>
+  <li>at application login time</li>
+  <li>at application lauch time</li>
+  <li>in cases where Cash is handled outside of the Ezetap system, at the time when Cash is chosen as a payment option</li>
+</ul>
+
+<h2 id="typical-api-usage">Typical API Usage</h2>
+
+<p>All these APIs below are in <a href="javadoc/com/ezetap/sdk/EzetapPayApi.html"><code>EzetapPayApi</code></a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>initializeDevice</code></td>
+      <td>To initialize device and authenticate it with bank. It is recommended that this API is used every day in the morning as a routine. If this API call is missed then the initilaization of the device will happen during the first transaction of the day. Typically this API is used through a menu item in application home screen.</td>
+    </tr>
+    <tr>
+      <td><code>startCardPayment</code></td>
+      <td>To perform card payment.</td>
+    </tr>
+    <tr>
+      <td><code>getTransactionHistory</code></td>
+      <td>To fetch the transaction history of the user.</td>
+    </tr>
+    <tr>
+      <td><code>startVoidTransaction</code></td>
+      <td>To perform void on existing unsettled transaction.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+		</div>
+
+        <div id="footer">
+      <div class="container">
+        <p>&copy; 2015 
+					<a href="http://www.ezetap.com" target="_blank">Ezetap Mobile Solutions Private Limited.</a>
+        </p>
+      </div>
+    </div>
+
+
+  </body>
+
+</html>
+
