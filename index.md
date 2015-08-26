@@ -1,10 +1,12 @@
 ---
-title: Document Center
+title: Home
+layout: default
+category: home
 ---
 
-# Ezetap Extensibility Framework #
+# Welcome to Ezetap SDK Home #
 
-Ezetap Extensibility Framework is aimed at enabling businesses to leverage the capabilities of Ezetap's mPOS system to manage Card, Cash and Cheque payments, easily integrated into their existing mobile, tablet and desktop applications via a standard SDK integration.
+Ezetap SDK is aimed at enabling businesses to leverage the capabilities of Ezetap's mPOS system to manage Card, Cash and Cheque payments, easily integrated into their existing mobile, tablet and desktop applications via a standard SDK integration.
 
 Ezetap SDK is available in the following platforms:
 

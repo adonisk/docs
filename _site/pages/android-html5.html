@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+  
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<title>
+			 Android HTML5 
+		</title>
+    
+		
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+  </head>
+
+
+
+  <body>
+
+    
+<header class="site-header">
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      	<a class="navbar-brand" href="/"><img alt="Brand" src="/images/eze-logo-white.png"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+      	<li><h3><span style="color:white">SDK Documentation</span></h3></li>
+			</ul>
+    	<ul class="nav navbar-nav navbar-right">
+				
+					
+        		<li><a href="/pages/android-html5.html">Android HTML5</a></li>
+					
+				
+					
+        		<li><a href="/pages/android-sdk.html">Android SDK</a></li>
+					
+				
+					
+				
+					
+        		<li><a href="/css/main.css"></a></li>
+					
+				
+					
+        		<li><a href="/pages/windows-sdk.html">Windows SDK</a></li>
+					
+				
+				
+				<li><a href="/" style="color:white"><i class="glyphicon glyphicon-home"></i> Home</a>
+				</li>
+    	</ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</header>
+
+    <div class="container container-fluid">
+			<p>If you are familiar with HTML5 development for mobile friendly websites, Ezetap provides a Webview that can be used to quickly override the default data capture screens of Ezetap basic mPOS application. You can even host the page yourself and provide Ezetap with the URL. Ezetap configures the app for your account to override the default screens with a <code>WebView</code> which is loaded with the contents of your URL.</p>
+
+<p>When you are ready to collect payment, you can collect the fields required and call Ezetap Javascript bridge which is exposed by simple Javascript methods.</p>
+
+<h2 id="what-you-need-to-get-started">What you need to get started</h2>
+
+<ol>
+  <li>Android phone that can connect to internet. Recommended to use Android 4.0.4 or above.</li>
+  <li>This documentation, familiarity with HTML and Javascript</li>
+  <li>Some place to host your page</li>
+  <li>Login credentials to Ezetap service</li>
+  <li>Ezetap <a href="#">mPOS Application TODO</a></li>
+  <li>Ezetap device to test</li>
+</ol>
+
+<h2 id="sample-application">Sample Application</h2>
+
+<p>Easiest way to get started is to head over to <a href="http://d.eze.cc/mposui/custom_webview.html">reference sample application</a> and do a view-source.</p>
+
+<p>All the fields in that page that starts with <code>ezetap_</code> are the fields that Ezetap understands. For doing a payment, Ezetap requires only one fields as mandatory - <code>ezetap_amount</code>.</p>
+
+<p>There is no need to keep the field names as it is there in the sample. Finally, the code you need to call is</p>
+
+<p>```javascript</p>
+
+<p>var paymentJson = {‘ezetap_amount’:1.0}; 
+  //this is for a sample amount of 1.0. Additional fields you can pass include the following.
+  //ezetap___ref: for your reference number
+  //ezetap_name: your customer’s name
+  //There are more fields - look at the form. Use these if you need to.
+  Ezetap.doCardPayment(JSON.stringify(paymentJson));</p>
+
+<p>```</p>
+
+<h2 id="recommended-development-strategy">Recommended Development Strategy</h2>
+
+<ol>
+  <li>Install <a href="https://www.google.com/chrome/browser/">Google Chrome Desktop Browser</a></li>
+  <li>Enable <a href="https://developer.chrome.com/devtools/docs/mobile-emulation">Mobile Device Emulation</a></li>
+  <li>Use standard libraries like (Bootstrap)[http://getbootstrap.com/css], (JQuery)[http://jquery.com] etc. For development, include stuff from http://cdnjs.com/ rather than local.</li>
+  <li>Develop your mobile UI. Leave a button as placeholder to call Ezetap. Test your UI using mobile device emulation.</li>
+  <li>Hookup your button for <code>Ezetap.doCashPayment</code>. This enables you to test your idea without needing an Ezetap device. You will still need Ezetap application on an Android phone for this though.</li>
+  <li>If that is working, just change the code to <code>Ezetap.doCardPayment</code>. There is no other change in your code and now you can test with the device.</li>
+</ol>
+
+
+		</div>
+
+        <div id="footer">
+      <div class="container">
+        <p>&copy; 2015 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </div>
+    </div>
+
+
+  </body>
+
+</html>
+

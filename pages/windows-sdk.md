@@ -1,3 +1,9 @@
+---
+title: Windows SDK
+category: windows
+layout: default
+---
+
 # Introduction #
 
 This section is for people who have existing windows (ver 7 or 8.1) applications running on a desktop and planning to integrate Ezetap mPoS solution using a standard windows SDK.
@@ -40,11 +46,14 @@ See the [Enumerations](#Enumerations) section for more details on the Enums.
 
 This method is used to login to Ezetap server. It accepts the following parameters. 
 
-| Input Field     | Description |
-|:----------------|:------_-----|
-| **LoginMode**   | This is a required field with 2 values PASSWORD or APPKEY. When LoginMode is ``PASSWORD``, *userName* and *Passkey* fields are used for authenticating the individual users' credentials against the merchant account. Only valid users in the merchant account are allowed to login. When LoginMode is ``APPKEY``, the appKey registered with the merchant (*provided to the merchant along with Ezetap setup documentation*) should be passed in the *passKey* field. *userName* is not validated against the merchant, but it is stored along with the payment details for all transactoins.  |
-| **userName**    | A valid userName in the merchant account |
-| ** Passkey**    | When *LoginMode* is *PASSWORD*, individual users' password should be passed in this field. For *APPKEY*, the merchant's *appKey* should be passed in this field. |
+
+	| Input Field     | Description |
+	|----------------|-----------|
+	| **LoginMode**   | This is a required field with 2 values PASSWORD or APPKEY. When LoginMode is ``PASSWORD``, *userName* and *Passkey* fields are used for authenticating the individual users' credentials against the merchant account. Only valid users in the merchant account are allowed to login. When LoginMode is ``APPKEY``, the appKey registered with the merchant (*provided to the merchant along with Ezetap setup documentation*) should be passed in the *passKey* field. *userName* is not validated against the merchant, but it is stored along with the payment details for all transactoins.  |
+	| **userName**    | A valid userName in the merchant account |
+	| **passkey**    | When *LoginMode* is *PASSWORD*, individual users' password should be passed in this field. For *APPKEY*, the merchant's *appKey* should be passed in this field. |
+
+
 
 > Note: Please refer **EzeResult** section for the details of the response
 

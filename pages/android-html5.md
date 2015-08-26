@@ -1,4 +1,8 @@
-
+---
+title: Android HTML5
+category: android
+layout: default
+---
 If you are familiar with HTML5 development for mobile friendly websites, Ezetap provides a Webview that can be used to quickly override the default data capture screens of Ezetap basic mPOS application. You can even host the page yourself and provide Ezetap with the URL. Ezetap configures the app for your account to override the default screens with a `WebView` which is loaded with the contents of your URL.
 
 When you are ready to collect payment, you can collect the fields required and call Ezetap Javascript bridge which is exposed by simple Javascript methods.

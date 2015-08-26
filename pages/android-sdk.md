@@ -1,4 +1,8 @@
-
+---
+title: Android SDK
+category: android
+layout: default
+---
 ## What you need to get started
 
 1. Android development environment
