@@ -1,6 +1,7 @@
 ---
-title: Android HTML5
-category: android
+title: Android Hybrid
+description: Integrating a hybrid HTML5 app (Web view) into Ezetap using JS
+type: Client SDK
 layout: default
 ---
 If you are familiar with HTML5 development for mobile friendly websites, Ezetap provides a Webview that can be used to quickly override the default data capture screens of Ezetap basic mPOS application. You can even host the page yourself and provide Ezetap with the URL. Ezetap configures the app for your account to override the default screens with a `WebView` which is loaded with the contents of your URL.

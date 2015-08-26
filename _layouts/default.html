@@ -8,9 +8,21 @@
     {% include header.html %}
 
     <div class="container container-fluid">
-			{{ content }}
+			<div class="row">
+				<div class="col-md-1 leftnav">
+				</div>
+				<div class="col-md-10 page">
+					<div class="page-header">
+						<h1>{{ page.title }}&nbsp;<small>{{ page.description }}</small></h1>
+					</div>
+					<div class="page-content">
+						{{ content }}
+					</div>
+					<div class="cos-md-1 rightnav">
+					</div>
+				</div>
+			</div>
 		</div>
-
     {% include footer.html %}
 
   </body>

@@ -8,22 +8,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<title>
-			 Android HTML5 
+			 Android Hybrid 
 		</title>
     
-		
+		<meta name="description" content="Integrating a hybrid HTML5 app (Web view) into Ezetap using JS">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap styles -->
-    <link href="/sdk/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/sdk/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/sdk/css/bootstrap-theme.min.css">
     
     <!-- Custom styles -->
-    <link href="/sdk/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="/sdk/css/style.css" type="text/css" media="all">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="/sdk/js/bootstrap.min.js"></script>
-  </head>
+</head>
 
 
 
@@ -32,55 +34,108 @@
     
 <header class="site-header">
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      	<a class="navbar-brand" href="/sdk/"><img alt="Brand" src="/sdk/images/eze-logo-white.png"></a>
+	<nav class="navbar navbar-default navbar-fixed-top">
+  	<div class="container-fluid">
+    	<!-- Brand and toggle get grouped for better mobile display -->
+    	<div class="navbar-header">
+      	<a class="navbar-brand" href="/sdk/">
+					<img alt="Brand" src="/sdk/images/eze-logo-white.png">
+				</a>
     	</div>
 
     	<!-- Collect the nav links, forms, and other content for toggling -->
     	<div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-      		<li><h3><span style="color:white">SDK Documentation</span></h3></li>
+      		<li><h3><span style="color:white">Documentation</span></h3></li>
 				</ul>
     		<ul class="nav navbar-nav navbar-right">
 					
-						
-        			<li><a href="/sdk/pages/android-html5.html">Android HTML5</a></li>
-						
+						<li class="dropdown">
+          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+								aria-haspopup="true" aria-expanded="false">User Docs <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</ul>
+						</li>
 					
-						
-        			<li><a href="/sdk/pages/android-sdk.html">Android SDK</a></li>
-						
+						<li class="dropdown">
+          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+								aria-haspopup="true" aria-expanded="false">Client SDK <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								
+									
+								
+									
+								
+									
+								
+									
+        						<li><a href="/sdk/pages/sdk-android-hybrid.html">Android Hybrid</a></li>
+									
+								
+									
+        						<li><a href="/sdk/pages/sdk-android-native.html">Android Native</a></li>
+									
+								
+									
+        						<li><a href="/sdk/pages/sdk-windows.html">Windows SDK</a></li>
+									
+								
+							</ul>
+						</li>
 					
-						
+						<li class="dropdown">
+          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+								aria-haspopup="true" aria-expanded="false">Server API <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								
+									
+        						<li><a href="/sdk/pages/api-notification.html">Notifications API</a></li>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</ul>
+						</li>
 					
-						
-        			<li><a href="/sdk/css/main.css"></a></li>
-						
-					
-						
-        			<li><a href="/sdk/pages/windows-sdk.html">Windows SDK</a></li>
-						
-					
-				
-					<li><a href="/sdk/" style="color:white"><i class="glyphicon glyphicon-home"></i> Home</a>
-					</li>
+					<li><a href="/sdk/" style="color:white"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+					<li>""</li>
     		</ul>
-    	</div>
-  	</div>
+  		</div>
+		</div>
 	</nav>
 </header>
 
     <div class="container container-fluid">
-			<p>If you are familiar with HTML5 development for mobile friendly websites, Ezetap provides a Webview that can be used to quickly override the default data capture screens of Ezetap basic mPOS application. You can even host the page yourself and provide Ezetap with the URL. Ezetap configures the app for your account to override the default screens with a <code>WebView</code> which is loaded with the contents of your URL.</p>
+			<div class="row">
+				<div class="col-md-1 leftnav">
+				</div>
+				<div class="col-md-10 page">
+					<div class="page-header">
+						<h1>Android Hybrid&nbsp;<small>Integrating a hybrid HTML5 app (Web view) into Ezetap using JS</small></h1>
+					</div>
+					<div class="page-content">
+						<p>If you are familiar with HTML5 development for mobile friendly websites, Ezetap provides a Webview that can be used to quickly override the default data capture screens of Ezetap basic mPOS application. You can even host the page yourself and provide Ezetap with the URL. Ezetap configures the app for your account to override the default screens with a <code>WebView</code> which is loaded with the contents of your URL.</p>
 
 <p>When you are ready to collect payment, you can collect the fields required and call Ezetap Javascript bridge which is exposed by simple Javascript methods.</p>
 
@@ -126,8 +181,12 @@
 </ol>
 
 
+					</div>
+					<div class="cos-md-1 rightnav">
+					</div>
+				</div>
+			</div>
 		</div>
-
         <div id="footer">
       <div class="container">
         <p>&copy; 2015 

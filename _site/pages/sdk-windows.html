@@ -11,19 +11,21 @@
 			 Windows SDK 
 		</title>
     
-		
+		<meta name="description" content="Integrating a windows application using Ezetap .NET sdk">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap styles -->
-    <link href="/sdk/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/sdk/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/sdk/css/bootstrap-theme.min.css">
     
     <!-- Custom styles -->
-    <link href="/sdk/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="/sdk/css/style.css" type="text/css" media="all">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="/sdk/js/bootstrap.min.js"></script>
-  </head>
+</head>
 
 
 
@@ -32,55 +34,108 @@
     
 <header class="site-header">
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      	<a class="navbar-brand" href="/sdk/"><img alt="Brand" src="/sdk/images/eze-logo-white.png"></a>
+	<nav class="navbar navbar-default navbar-fixed-top">
+  	<div class="container-fluid">
+    	<!-- Brand and toggle get grouped for better mobile display -->
+    	<div class="navbar-header">
+      	<a class="navbar-brand" href="/sdk/">
+					<img alt="Brand" src="/sdk/images/eze-logo-white.png">
+				</a>
     	</div>
 
     	<!-- Collect the nav links, forms, and other content for toggling -->
     	<div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-      		<li><h3><span style="color:white">SDK Documentation</span></h3></li>
+      		<li><h3><span style="color:white">Documentation</span></h3></li>
 				</ul>
     		<ul class="nav navbar-nav navbar-right">
 					
-						
-        			<li><a href="/sdk/pages/android-html5.html">Android HTML5</a></li>
-						
+						<li class="dropdown">
+          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+								aria-haspopup="true" aria-expanded="false">User Docs <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</ul>
+						</li>
 					
-						
-        			<li><a href="/sdk/pages/android-sdk.html">Android SDK</a></li>
-						
+						<li class="dropdown">
+          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+								aria-haspopup="true" aria-expanded="false">Client SDK <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								
+									
+								
+									
+								
+									
+								
+									
+        						<li><a href="/sdk/pages/sdk-android-hybrid.html">Android Hybrid</a></li>
+									
+								
+									
+        						<li><a href="/sdk/pages/sdk-android-native.html">Android Native</a></li>
+									
+								
+									
+        						<li><a href="/sdk/pages/sdk-windows.html">Windows SDK</a></li>
+									
+								
+							</ul>
+						</li>
 					
-						
+						<li class="dropdown">
+          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+								aria-haspopup="true" aria-expanded="false">Server API <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								
+									
+        						<li><a href="/sdk/pages/api-notification.html">Notifications API</a></li>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</ul>
+						</li>
 					
-						
-        			<li><a href="/sdk/css/main.css"></a></li>
-						
-					
-						
-        			<li><a href="/sdk/pages/windows-sdk.html">Windows SDK</a></li>
-						
-					
-				
-					<li><a href="/sdk/" style="color:white"><i class="glyphicon glyphicon-home"></i> Home</a>
-					</li>
+					<li><a href="/sdk/" style="color:white"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+					<li>""</li>
     		</ul>
-    	</div>
-  	</div>
+  		</div>
+		</div>
 	</nav>
 </header>
 
     <div class="container container-fluid">
-			<h1 id="introduction">Introduction</h1>
+			<div class="row">
+				<div class="col-md-1 leftnav">
+				</div>
+				<div class="col-md-10 page">
+					<div class="page-header">
+						<h1>Windows SDK&nbsp;<small>Integrating a windows application using Ezetap .NET sdk</small></h1>
+					</div>
+					<div class="page-content">
+						<h2 id="introduction">Introduction</h2>
 
 <p>This section is for people who have existing windows (ver 7 or 8.1) applications running on a desktop and planning to integrate Ezetap mPoS solution using a standard windows SDK.</p>
 
@@ -88,53 +143,68 @@
   <p><strong>Note:</strong> If you are looking for a standalone mPoS solution for windows desktop or tablet, please refer to the <code>Ezetap Basic mPoS (for windows)</code> documentation</p>
 </blockquote>
 
-<p><strong>What you need to get started</strong></p>
+<h4 id="what-do-you-need-to-get-started">What do you need to get started</h4>
 
-<ol>
-  <li>A Visual Studio .NET development environment</li>
-  <li>A Windows tablet / desktop (with a connection to internet) to test the application</li>
-  <li>A DEMO merchant setup and login credentials to Ezetap service</li>
-  <li>Ezetap device connected to the tablet / desktop via USB</li>
-</ol>
+<pre><code>1. A Visual Studio .NET development environment
+2. A Windows tablet / desktop (with a connection to internet) to test the application 
+3. A DEMO merchant setup and login credentials to Ezetap service
+4. Ezetap device connected to the tablet / desktop via USB
+</code></pre>
 
-<h1 id="download-the-windows-sdk">Download the Windows SDK</h1>
+<h2 id="download-the-windows-sdk">Download the Windows SDK</h2>
 
-<h1 id="api-documentation">API Documentation</h1>
+<p>Please</p>
+
+<h2 id="api-documentation">API Documentation</h2>
 
 <p>The primary interface to the API is through a Singleton class called <strong>EzeAPI</strong>. The following section describes the operations available on the EzeAPI for performing various payment related transactions exposed by the API.</p>
 
-<h2 id="ezeapi">EzeAPI</h2>
+<h3 id="ezeapi">EzeAPI</h3>
 
-<p><strong>Create()</strong></p>
+<p>This section documents the operations and attributes available on the EzeAPI</p>
+
+<h4 id="create">Create</h4>
 
 <pre><code>    public static EzeAPI create(ServerType serverType)
 </code></pre>
 
-<p>The first operation exposed on the API is the Create() method. It is used to create an instance of the EzeAPI object against with the other methods are invoked. EzeAPI instance can be created either in DEMO or PROD modes by passing the corresponding ServerType enum.</p>
-
-<p>This method returns a singleton instance of EzeAPI object, which should be stored and used to perform all other operations.</p>
+<p>The first operation exposed on the API is the Create() method. It is used to create an instance of the EzeAPI object against with the other methods are invoked. EzeAPI instance can be created either in DEMO or PROD modes by passing the corresponding ServerType enum. This method returns a singleton instance of EzeAPI object, which should be stored and used to perform all other operations.</p>
 
 <p>See the <a href="#Enumerations">Enumerations</a> section for more details on the Enums.</p>
 
-<p><strong>Login()</strong></p>
+<h4 id="login">Login</h4>
 
 <pre><code>    public EzeResult login(LoginMode mode, string userName, string passkey) 
 </code></pre>
 
 <p>This method is used to login to Ezetap server. It accepts the following parameters.</p>
 
-<pre><code>| Input Field     | Description |
-|----------------|-----------|
-| **LoginMode**   | This is a required field with 2 values PASSWORD or APPKEY. When LoginMode is ``PASSWORD``, *userName* and *Passkey* fields are used for authenticating the individual users' credentials against the merchant account. Only valid users in the merchant account are allowed to login. When LoginMode is ``APPKEY``, the appKey registered with the merchant (*provided to the merchant along with Ezetap setup documentation*) should be passed in the *passKey* field. *userName* is not validated against the merchant, but it is stored along with the payment details for all transactoins.  |
-| **userName**    | A valid userName in the merchant account |
-| **passkey**    | When *LoginMode* is *PASSWORD*, individual users' password should be passed in this field. For *APPKEY*, the merchant's *appKey* should be passed in this field. |
-</code></pre>
+<table>
+  <thead>
+    <tr>
+      <th>Input Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LoginMode</td>
+      <td>This is a required field with 2 values PASSWORD or APPKEY. When LoginMode is <code>PASSWORD</code>, <em>userName</em> and <em>Passkey</em> fields are used for authenticating the individual users’ credentials against the merchant account. Only valid users in the merchant account are allowed to login. When LoginMode is <code>APPKEY</code>, the appKey registered with the merchant (<em>provided to the merchant along with Ezetap setup documentation</em>) should be passed in the <em>passKey</em> field. <em>userName</em> is not validated against the merchant, but it is stored along with the payment details for all transactoins.</td>
+    </tr>
+    <tr>
+      <td>userName</td>
+      <td>A valid userName in the merchant account</td>
+    </tr>
+    <tr>
+      <td>passkey</td>
+      <td>When <em>LoginMode</em> is <em>PASSWORD</em>, individual users’ password should be passed in this field. For <em>APPKEY</em>, the merchant’s <em>appKey</em> should be passed in this field.</td>
+    </tr>
+  </tbody>
+</table>
 
-<blockquote>
-  <p>Note: Please refer <strong>EzeResult</strong> section for the details of the response</p>
-</blockquote>
+<p>Please refer <a href="#EzeResult">EzeResult</a> section for the details of the response</p>
 
-<p><strong>Prepare Device</strong></p>
+<h4 id="prepare-device">Prepare Device</h4>
 
 <pre><code>    public EzeResult prepareDevice() 
 </code></pre>
@@ -150,38 +220,38 @@
   <p>Note: If the EzeAPI returns an error related to <em>device not ready</em> during postPayment() transaction, please implement an option for the user to prepare the device as needed.</p>
 </blockquote>
 
-<p><strong>TakePayment()</strong></p>
+<h4 id="take-payment">Take Payment</h4>
 
 <pre><code>    public EzeResult takePayment(PaymentType type, double amount, PaymentOptions options) 
 </code></pre>
 
 <p>Take payment is the primary interface for payment transactions.</p>
 
-<p><strong>AttachSignature()</strong></p>
+<h4 id="attach-signature">Attach Signature</h4>
 
 <pre><code>    public EzeResult attachSignature(string txnId, ImageType imageType, ByteString imageData, int height, int width, double tipAmount)
 </code></pre>
 
-<p><strong>SetMessageHandler()</strong></p>
+<h4 id="set-message-handler">Set Message Handler()</h4>
 
 <pre><code>    public void setMessageHandler(EzeNotification handler)
 </code></pre>
 
-<p><strong>Logout()</strong></p>
+<h4 id="logout">Logout</h4>
 
 <pre><code>    private EzeAPI logout()
 </code></pre>
 
 <p>Logout method is used to log out a user from the API. This method is used in a situation when multiple users are needing to use the API. While the API will be instantiated and continuously running, individual users will log in and out of the API using the login and logout methods. When using the APPKEY mode to login, there is no need to logout. Instead, destroy() method is recommended to be used to close down the API.</p>
 
-<p><strong>Destroy()</strong></p>
+<h4 id="destroy">Destroy()</h4>
 
 <pre><code>    public static void destroy()
 </code></pre>
 
 <p>This is the last operation that should be invoked on the Ezetap SDK to destroy the EzeAPI instance. This method closes the connection to Ezetap server, relinquishes the connection to the device and gracefully exists from the API.</p>
 
-<h2 id="paymentoptions">PaymentOptions</h2>
+<h3 id="paymentoptions">PaymentOptions</h3>
 
 <pre><code>public class PaymentOptions 
 {
@@ -195,7 +265,7 @@
 
 <p>The following</p>
 
-<h2 id="ezeresult">EzeResult</h2>
+<h3 id="ezeresult">EzeResult</h3>
 
 <p>EzeResult is returned whenever a response is returned to the user while invoking the EzeAPI.</p>
 
@@ -212,41 +282,39 @@
 <p>It contains the following methods:</p>
 
 <table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Method</td>
-      <td>Description</td>
+      <td>paymentResult</td>
+      <td>an instance of paymentResult object that contains the details of the payment transaction</td>
     </tr>
     <tr>
-      <td>:—————-</td>
-      <td>:——_—–</td>
-    </tr>
-    <tr>
-      <td><strong>getPaymentResult()</strong></td>
-      <td>Returns an instance of paymentResult object that contains the details of the payment transaction.</td>
-    </tr>
-    <tr>
-      <td><strong>getEventName()</strong></td>
+      <td>eventName</td>
       <td>Enum representing the API method invoked</td>
     </tr>
     <tr>
-      <td><strong>getStatus()</strong></td>
+      <td>status</td>
       <td>Status enum representing the status of the transaction. Valid values are SUCCESS or FAILED.</td>
     </tr>
     <tr>
-      <td>** getCode()**</td>
+      <td>code</td>
       <td>Ezetap error code representing the problem</td>
     </tr>
     <tr>
-      <td><strong>getMessage()</strong></td>
+      <td>message</td>
       <td>Message representing the details, in case of an error</td>
     </tr>
   </tbody>
 </table>
 
-<p>Please See <a href="##PaymentResult##">PaymentResult</a> for details on paymentResult class and <a href="##Enumerations##">Enumerations</a> for the different Enumerations used.</p>
+<p>Please See <a href="#PaymentResult">PaymentResult</a> for details on paymentResult class and <a href="#Enumerations">Enumerations</a> for the different Enumerations used.</p>
 
-<h2 id="paymentresult">PaymentResult</h2>
+<h3 id="paymentresult">PaymentResult</h3>
 
 <p>EzeResult is returned whenever a response is returned to the user while invoking the EzeAPI.</p>
 
@@ -256,7 +324,7 @@
 	public string getStatus();
 	public string getTxnId();
 	public double getAmount();
-    public string getSettlementStatus();
+		public string getSettlementStatus();
 	public bool getVoidable();
 	public string getChequeNo();
 	public string getChequeDate();
@@ -271,75 +339,73 @@
 <p>The methods available on this class and their details are given below:</p>
 
 <table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Method</td>
-      <td>Description</td>
-    </tr>
-    <tr>
-      <td>:—————-</td>
-      <td>:——_—–</td>
-    </tr>
-    <tr>
-      <td><strong>getPmtType()</strong></td>
+      <td>pmtType</td>
       <td>Payment type of the transaction (Cash, Card or Cheque)</td>
     </tr>
     <tr>
-      <td><strong>getStatus()</strong></td>
+      <td>status</td>
       <td>Status enum representing the status of the transaction. Valid values are SUCCESS or FAILED.</td>
     </tr>
     <tr>
-      <td><strong>getTxnId()</strong></td>
+      <td>txnId</td>
       <td>Unique ID of the transaction</td>
     </tr>
     <tr>
-      <td><strong>getAmount()</strong></td>
+      <td>amount</td>
       <td>Amount of the transaction</td>
     </tr>
     <tr>
-      <td><strong>getSettlementStatus()</strong></td>
+      <td>settlementStatus</td>
       <td>Settlement status of the txn (Pending / Settled)</td>
     </tr>
     <tr>
-      <td><strong>getVoidable()</strong></td>
+      <td>voidable</td>
       <td>Boolean indicating whether transaction is voidable</td>
     </tr>
     <tr>
-      <td><strong>getChequeNo()</strong></td>
+      <td>chequeNo</td>
       <td>Cheque No passed in (only for Cheque txns)</td>
     </tr>
     <tr>
-      <td><strong>getChequeDate()</strong></td>
+      <td>chequeDate</td>
       <td>Cheque Date passed in (only for Cheque txns)</td>
     </tr>
     <tr>
-      <td><strong>getAuthCode()</strong></td>
+      <td>authCode</td>
       <td>Auth code of the card txn</td>
     </tr>
     <tr>
-      <td><strong>getCardType()</strong></td>
+      <td>cardType</td>
       <td>Card type of the card txn (Credit / Debit)</td>
     </tr>
     <tr>
-      <td>** getOrderId()**</td>
+      <td>orderId</td>
       <td>Order Id for the transaction, passed in by the caller during the payment transaction</td>
     </tr>
     <tr>
-      <td><strong>getTid()</strong></td>
+      <td>tid</td>
       <td>TID (Terminal Id) provided by the Bank for the specific terminal device of the merchant</td>
     </tr>
     <tr>
-      <td><strong>getMid()</strong></td>
+      <td>mid</td>
       <td>MID (Merchant Id) provided by the Bank for the merchant account</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="enumerations">Enumerations</h2>
+<h3 id="enumerations">Enumerations</h3>
 
 <p>The following section documents all the enumerations that are available for use while invoking the Ezetap SDK.</p>
 
-<p><strong>ServerType</strong></p>
+<h4 id="servertype">ServerType</h4>
 
 <p>ServerType enum is passed while creating the EzeAPI instance. You can either pass PROD or DEMO values. This enum configures the API to either work with the production or DEMO version of the Ezetap Service.</p>
 
@@ -349,7 +415,7 @@
 }
 </code></pre>
 
-<p><strong>LoginMode</strong></p>
+<h4 id="loginmode">LoginMode</h4>
 
 <p>Users can login to the EzeAPI using either username/password or APPKEY. When  using username/password, the LoginMode is set to PASSWORD and the individual user is authenticated using the users login credentials against the merchant. When using APPKEY, authentication is performed against the APPKEY present in the merchant account.</p>
 
@@ -359,7 +425,7 @@
 }
 </code></pre>
 
-<p><strong>Status</strong></p>
+<h4 id="status">Status</h4>
 
 <p>Status enum is returned as part of EzeResult that indicates if a an API call was successful or failed.</p>
 
@@ -369,7 +435,7 @@
 }
 </code></pre>
 
-<p><strong>PaymentType</strong></p>
+<h4 id="paymenttype">PaymentType</h4>
 
 <p>PaymentType enum is passed as input to takePayment() API call and can accept CARD, CASH or CHEQUE as valid payment types</p>
 
@@ -379,7 +445,7 @@
 }
 </code></pre>
 
-<p><strong>ImageType</strong></p>
+<h4 id="imagetype">ImageType</h4>
 
 <p>ImageType enum is used in the attachSignature() API call for passing eSignature data in one of the acceptable image formats.</p>
 
@@ -389,7 +455,7 @@
 }
 </code></pre>
 
-<p><strong>EventName</strong></p>
+<h4 id="eventname">EventName</h4>
 
 <p>EventName enum is returned as part of the EzeResult object indicating the different API method calls invoked on EzeAPI</p>
 
@@ -399,8 +465,12 @@
 }
 </code></pre>
 
+					</div>
+					<div class="cos-md-1 rightnav">
+					</div>
+				</div>
+			</div>
 		</div>
-
         <div id="footer">
       <div class="container">
         <p>&copy; 2015 

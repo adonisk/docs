@@ -1,6 +1,7 @@
 ---
-title: Android SDK
-category: android
+title: Android Native
+description: Integrating a native Android app into Ezetap using Android SDK
+type: Client SDK
 layout: default
 ---
 ## What you need to get started

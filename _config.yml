@@ -1,5 +1,5 @@
 # Site settings
-title: SDK Documentation
+title: Documentation
 email: developer@ezetap.com
 description: Home pate for Ezetap SDK documentation
 baseurl: "/sdk" # the subpath of your site, e.g. /blog/
@@ -12,6 +12,9 @@ url: "http://www.ezetap.com" # the base hostname & protocol for your site
 markdown: kramdown
 
 
-category: android
+page_types:
+  - User Docs
+  - Client SDK
+  - Server API
 
 home_category: home
