@@ -32,7 +32,7 @@ Merchant needs to ignore any undocumented attributes that may come with the requ
 
 JSON structure for different events and processes are documented below.
 
-Some fields may not be available all the time. For e.g. In case of CASH transactions, the body won't have card related fields like  formatted card no. or authorization code from payment gateway.
+> Some fields may not be available all the time. For e.g. In case of CASH transactions, the body won't have card related fields like  formatted card no. or authorization code from payment gateway.
 
 
 ###Callback  JSON###

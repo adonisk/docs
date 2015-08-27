@@ -18,13 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap styles -->
-    <link rel="stylesheet" href="/sdk/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/sdk/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/docs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/docs/css/bootstrap-theme.min.css">
     
     <!-- Custom styles -->
-    <link rel="stylesheet" href="/sdk/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/docs/css/style.css" type="text/css" media="all">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="/sdk/js/bootstrap.min.js"></script>
+    <script src="/docs/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -38,15 +38,15 @@
   	<div class="container-fluid">
     	<!-- Brand and toggle get grouped for better mobile display -->
     	<div class="navbar-header">
-      	<a class="navbar-brand" href="/sdk/">
-					<img alt="Brand" src="/sdk/images/eze-logo-white.png">
+      	<a class="navbar-brand" href="/docs/">
+					<img alt="Brand" src="/docs/images/eze-logo-white.png">
 				</a>
     	</div>
 
     	<!-- Collect the nav links, forms, and other content for toggling -->
     	<div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-      		<li><h3><span style="color:white">Documentation</span></h3></li>
+      		<li><h3><span style="color:white">Docs</span></h3></li>
 				</ul>
     		<ul class="nav navbar-nav navbar-right">
 					
@@ -54,8 +54,6 @@
           		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
 								aria-haspopup="true" aria-expanded="false">User Docs <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								
-									
 								
 									
 								
@@ -84,19 +82,15 @@
 									
 								
 									
-        						<li><a href="/sdk/pages/sdk-android-hybrid.html">3. Android Hybrid</a></li>
+        						<li><a href="/docs/pages/sdk-android-hybrid.html">Android Hybrid</a></li>
 									
 								
 									
-        						<li><a href="/sdk/pages/sdk-android-native.html">2. Android Native</a></li>
+        						<li><a href="/docs/pages/sdk-android-native.html">Android Native</a></li>
 									
 								
 									
-        						<li><a href="/sdk/pages/sdk-home.html">1. SDK Home</a></li>
-									
-								
-									
-        						<li><a href="/sdk/pages/sdk-windows.html">4. Windows SDK</a></li>
+        						<li><a href="/docs/pages/sdk-windows.html">Windows SDK</a></li>
 									
 								
 							</ul>
@@ -108,9 +102,7 @@
 							<ul class="dropdown-menu">
 								
 									
-        						<li><a href="/sdk/pages/api-notification.html">Notifications API</a></li>
-									
-								
+        						<li><a href="/docs/pages/api-notification.html">Notifications API</a></li>
 									
 								
 									
@@ -126,7 +118,7 @@
 							</ul>
 						</li>
 					
-					<li><a href="/sdk/" style="color:white"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+					<li><a href="/docs/" style="color:white"><i class="glyphicon glyphicon-home"></i> Home</a></li>
 					<li>""</li>
     		</ul>
   		</div>
@@ -171,7 +163,9 @@ Request Body: JSON encoded key-value pairs are sent in the request body.
 
 <p>JSON structure for different events and processes are documented below.</p>
 
-<p>Some fields may not be available all the time. For e.g. In case of CASH transactions, the body won’t have card related fields like  formatted card no. or authorization code from payment gateway.</p>
+<blockquote>
+  <p>Some fields may not be available all the time. For e.g. In case of CASH transactions, the body won’t have card related fields like  formatted card no. or authorization code from payment gateway.</p>
+</blockquote>
 
 <h3 id="callback--json">Callback  JSON</h3>
 

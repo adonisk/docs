@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<title>
-			 2. Android Native 
+			 Android Native 
 		</title>
     
 		<meta name="description" content="Integrating a native Android app into Ezetap using Android SDK">
@@ -18,13 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap styles -->
-    <link rel="stylesheet" href="/sdk/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/sdk/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/docs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/docs/css/bootstrap-theme.min.css">
     
     <!-- Custom styles -->
-    <link rel="stylesheet" href="/sdk/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/docs/css/style.css" type="text/css" media="all">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="/sdk/js/bootstrap.min.js"></script>
+    <script src="/docs/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -38,15 +38,15 @@
   	<div class="container-fluid">
     	<!-- Brand and toggle get grouped for better mobile display -->
     	<div class="navbar-header">
-      	<a class="navbar-brand" href="/sdk/">
-					<img alt="Brand" src="/sdk/images/eze-logo-white.png">
+      	<a class="navbar-brand" href="/docs/">
+					<img alt="Brand" src="/docs/images/eze-logo-white.png">
 				</a>
     	</div>
 
     	<!-- Collect the nav links, forms, and other content for toggling -->
     	<div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-      		<li><h3><span style="color:white">Documentation</span></h3></li>
+      		<li><h3><span style="color:white">Docs</span></h3></li>
 				</ul>
     		<ul class="nav navbar-nav navbar-right">
 					
@@ -54,8 +54,6 @@
           		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
 								aria-haspopup="true" aria-expanded="false">User Docs <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								
-									
 								
 									
 								
@@ -84,19 +82,15 @@
 									
 								
 									
-        						<li><a href="/sdk/pages/sdk-android-hybrid.html">3. Android Hybrid</a></li>
+        						<li><a href="/docs/pages/sdk-android-hybrid.html">Android Hybrid</a></li>
 									
 								
 									
-        						<li><a href="/sdk/pages/sdk-android-native.html">2. Android Native</a></li>
+        						<li><a href="/docs/pages/sdk-android-native.html">Android Native</a></li>
 									
 								
 									
-        						<li><a href="/sdk/pages/sdk-home.html">1. SDK Home</a></li>
-									
-								
-									
-        						<li><a href="/sdk/pages/sdk-windows.html">4. Windows SDK</a></li>
+        						<li><a href="/docs/pages/sdk-windows.html">Windows SDK</a></li>
 									
 								
 							</ul>
@@ -108,9 +102,7 @@
 							<ul class="dropdown-menu">
 								
 									
-        						<li><a href="/sdk/pages/api-notification.html">Notifications API</a></li>
-									
-								
+        						<li><a href="/docs/pages/api-notification.html">Notifications API</a></li>
 									
 								
 									
@@ -126,7 +118,7 @@
 							</ul>
 						</li>
 					
-					<li><a href="/sdk/" style="color:white"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+					<li><a href="/docs/" style="color:white"><i class="glyphicon glyphicon-home"></i> Home</a></li>
 					<li>""</li>
     		</ul>
   		</div>
@@ -140,24 +132,29 @@
 				</div>
 				<div class="col-md-10 page">
 					<div class="page-header">
-						<h1>2. Android Native&nbsp;<small>Integrating a native Android app into Ezetap using Android SDK</small></h1>
+						<h1>Android Native&nbsp;<small>Integrating a native Android app into Ezetap using Android SDK</small></h1>
 					</div>
 					<div class="page-content">
-						<h2 id="what-you-need-to-get-started">What you need to get started</h2>
+						<p>This section is meant for people who have existing android native apps and would like to integrate Ezetap mPoS solution through a native android SDK implementation.</p>
 
-<ol>
-  <li>Android development environment</li>
-  <li>Android phone that can connect to internet</li>
-  <li>This documentation</li>
-  <li>Ezetap license key to put in your code
-    <ul>
-      <li>Or login credentials to Ezetap service</li>
-    </ul>
-  </li>
-  <li>Ezetap device to test</li>
-</ol>
+<blockquote>
+  <p><strong>Note:</strong> If you are looking for a standalone mPoS solution for Android mobile or tablet, please refer to the <code>Ezetap Basic mPoS (for Android)</code> documentation</p>
+</blockquote>
 
-<h2 id="components">Components</h2>
+<h4 id="what-you-need-to-get-started">What you need to get started</h4>
+
+<pre><code>1. Android development environment
+2. Android phone that can connect to internet
+3. This documentation
+4. Ezetap license key to put in your code or login credentials to Ezetap service
+5. Ezetap device to test
+</code></pre>
+
+<h2 id="installation-and-setup">Installation and Setup</h2>
+<p>Please <a href="ezetap_sdk_package_2_0_5.zip">download the latest build of the Ezetap Android SDK</a>. Ezetap 
+team will set up the necessary Merchant credentials, AppKey and other details for you.</p>
+
+<h3 id="package-components">Package Components</h3>
 
 <p>The Ezetap SDK package consists of the following components.</p>
 
@@ -174,14 +171,10 @@
   <li><code>Ezetap Android SDK Implementation Guide</code> : this document.</li>
 </ul>
 
-<h2 id="acquiring-the-ezetap-sdk">Acquiring the Ezetap SDK</h2>
-<p>Please <a href="ezetap_sdk_package_2_0_5.zip">download the latest build of the Ezetap SDK</a>. Ezetap 
-team will set up the necessary Merchant credentials, AppKey and other details for you.</p>
-
-<h2 id="setting-up-your-development-environment">Setting up your Development Environment</h2>
+<h3 id="setting-up-your-development-environment">Setting up your Development Environment</h3>
 <p>Upon receiving the Ezetap SDK package, unzip the contents into a directory of choice. Add <code>ezetap_sdk_2_0_buildnumber.jar</code> to the <code>libs</code> directory of your Android Project.</p>
 
-<p><img src="eclipse_sdk_layout.png" alt="image" /></p>
+<p><img src="/docs/images/eclipse-sdk-layout.png" alt="image" /></p>
 
 <p>You are now ready to invoke Ezetap APIs using which you can integrate Ezetap’s Card, Cash and other capabilities into your application.</p>
 

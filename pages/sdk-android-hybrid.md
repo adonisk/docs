@@ -1,9 +1,10 @@
 ---
-title: 3. Android Hybrid
+title: Android Hybrid
 description: Integrating a hybrid HTML5 app (Web view) into Ezetap using JS
 type: Client SDK
 layout: default
 ---
+
 If you are familiar with HTML5 development for mobile friendly websites, Ezetap provides a Webview that can be used to quickly override the default data capture screens of Ezetap basic mPOS application. You can even host the page yourself and provide Ezetap with the URL. Ezetap configures the app for your account to override the default screens with a `WebView` which is loaded with the contents of your URL.
 
 When you are ready to collect payment, you can collect the fields required and call Ezetap Javascript bridge which is exposed by simple Javascript methods.
@@ -25,16 +26,13 @@ All the fields in that page that starts with `ezetap_` are the fields that Ezeta
 
 There is no need to keep the field names as it is there in the sample. Finally, the code you need to call is 
 
-```javascript
-
-  var paymentJson = {'ezetap_amount':1.0}; 
-  //this is for a sample amount of 1.0. Additional fields you can pass include the following.
-  //ezetap___ref: for your reference number
-  //ezetap_name: your customer's name
-  //There are more fields - look at the form. Use these if you need to.
-  Ezetap.doCardPayment(JSON.stringify(paymentJson));
-
-```
+	``javascript
+	var paymentJson = {'ezetap_amount':1.0}; 
+	//this is for a sample amount of 1.0. Additional fields you can pass include the following.
+	//ezetap___ref: for your reference number
+	//ezetap_name: your customer's name
+	//There are more fields - look at the form. Use these if you need to.
+	Ezetap.doCardPayment(JSON.stringify(paymentJson));
 
 ## Recommended Development Strategy
 

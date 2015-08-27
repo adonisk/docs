@@ -1,19 +1,27 @@
 ---
-title: 2. Android Native
+title: Android Native
 description: Integrating a native Android app into Ezetap using Android SDK
 type: Client SDK
 layout: default
 ---
-## What you need to get started
 
-1. Android development environment
-1. Android phone that can connect to internet
-1. This documentation
-1. Ezetap license key to put in your code
-   * Or login credentials to Ezetap service
-1. Ezetap device to test
+This section is meant for people who have existing android native apps and would like to integrate Ezetap mPoS solution through a native android SDK implementation. 
 
-## Components
+> **Note:** If you are looking for a standalone mPoS solution for Android mobile or tablet, please refer to the ``Ezetap Basic mPoS (for Android)`` documentation
+
+#### What you need to get started####
+
+	1. Android development environment
+	2. Android phone that can connect to internet
+	3. This documentation
+	4. Ezetap license key to put in your code or login credentials to Ezetap service
+	5. Ezetap device to test
+
+## Installation and Setup##
+Please [download the latest build of the Ezetap Android SDK](ezetap_sdk_package_2_0_5.zip). Ezetap 
+team will set up the necessary Merchant credentials, AppKey and other details for you. 
+
+###Package Components###
 
 The Ezetap SDK package consists of the following components.
 
@@ -25,14 +33,10 @@ The Ezetap SDK package consists of the following components.
 * A document containing *AppKey* and other *ORG* specific information for your organization.
 * `Ezetap Android SDK Implementation Guide` : this document.
 
-## Acquiring the Ezetap SDK 
-Please [download the latest build of the Ezetap SDK](ezetap_sdk_package_2_0_5.zip). Ezetap 
-team will set up the necessary Merchant credentials, AppKey and other details for you. 
-
-## Setting up your Development Environment
+### Setting up your Development Environment###
 Upon receiving the Ezetap SDK package, unzip the contents into a directory of choice. Add `ezetap_sdk_2_0_buildnumber.jar` to the `libs` directory of your Android Project.
 
-![image](eclipse_sdk_layout.png)
+![image]({{site.baseurl}}/images/eclipse-sdk-layout.png)
 
 You are now ready to invoke Ezetap APIs using which you can integrate Ezetap's Card, Cash and other capabilities into your application.
 
