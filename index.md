@@ -1,6 +1,6 @@
 ---
 title: Doc Central
-description: Home for documents related to Ezetap integration
+description: Home for Ezetap integration related documents
 layout: default
 type: Home
 ---

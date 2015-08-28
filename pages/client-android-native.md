@@ -1,5 +1,5 @@
 ---
-title: Android SDK - Native
+title: Android - Native
 description: Integrating a native app using Android SDK
 type: Client Side
 layout: default
@@ -40,7 +40,7 @@ Upon receiving the Ezetap SDK package, unzip the contents into a directory of ch
 
 You are now ready to invoke Ezetap APIs using which you can integrate Ezetap's Card, Cash and other capabilities into your application.
 
-## Ezetap APIs     :[API Doc]({{site.baseurl}}/api-docs/android/native/index.html)
+## Ezetap APIs - [Complete API Reference]({{site.baseurl}}/api-docs/android/native/index.html)
 This section gives a brief introduction to the APIs available as part of the Ezetap SDK.
 
   | Name                                                             | Meaning                                                                                                                                                                                                                                                                  |
@@ -73,24 +73,19 @@ retrieved as a `String Extra` from the `Intent`, using the key `EzeConstants.KEY
   | errorMessage     | Value = A description of the error This is to be quoted to Ezetap Support in conjunction with the errorCode above |
 
 
-Hint: For Transaction APIs, you may create an instance of [`TransactionDetails`](javadoc/com/ezetap/sdk/TransactionDetails.html) using the JSON data for ease of use.
+Hint: For Transaction APIs, you may create an instance of [`TransactionDetails`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/TransactionDetails.html) using the JSON data for ease of use.
 
 
 ## Updating Ezetap Service App
 Access to the Ezetap APIs is provided and facilited by the Ezetap Service App. The Ezetap SDK provides the API interface 
 necessary to call Ezetap APIs via the Service App. As and when Ezetap rectifies issues and enhances the Service App, updates are made available to Ezetap SDK users.
 
-It is recommended that calling apps periodically check for updates and stay current by calling the [checkForUpdate]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapPayApi.html#checkForUpdate\(android.app.Activity%2C%20int%2C%20java.lang.String) API provided by the Ezetap SDK. You may transform the JSON response into an instance of [`EzetapAppUpdateResponse`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapAppUpdateResponse.html) and based on the severity of the update, choose to update. The Service App may be updated by creating an instance of [`EzetapDownloadUtils`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapDownloadUtils.html) and calling `start()`. This will download the latest service app and update it on the mobile device.
+It is recommended that calling apps periodically check for updates and stay current by calling the [checkForUpdate]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapPayApi.html#checkForUpdate) API provided by the Ezetap SDK. You may transform the JSON response into an instance of [`EzetapAppUpdateResponse`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapAppUpdateResponse.html) and based on the severity of the update, choose to update. The Service App may be updated by creating an instance of [`EzetapDownloadUtils`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapDownloadUtils.html) and calling `start()`. This will download the latest service app and update it on the mobile device.
 
 
-	void checkForUpdate(Activity context, int reqCode, String username);
-	/**
-		* Use this API to check if there is an update to the Ezetap
-		* Service App. It is recommended that this API be called by
-    * application implementations periodically.
-    * For example, you may choose to call this API at application
-    * start time or at login time.
-    */
+  void checkForUpdate(Activity context, int reqCode, String username);
+
+> Use this API to check if there is an update to the Ezetap Service App. It is recommended that this API be called by application implementations periodically. For example, you may choose to call this API at application start time or at login time.
 
 ### EzetapAppUpdateResponse
 A bean representation of the response from the Ezetap server to the `checkForUpdate` API call. Please refer to the [javadoc]({{site.baseurl}}/api-docs/android/native/index.html) to know more about the attributes available.
