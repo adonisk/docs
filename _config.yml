@@ -1,7 +1,7 @@
 # Site settings
-title: Developers
-email: developer@ezetap.com
-description: Home pate for Ezetap SDK documentation
+title: Docs
+email: proserv@ezetap.com
+description: Home for Ezetap integration related documentation
 baseurl: "/docs" # the subpath of your site, e.g. /blog/
 url: "http://www.ezetap.com" # the base hostname & protocol for your site
 

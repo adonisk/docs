@@ -17,15 +17,15 @@ This section is meant for people who have existing android native apps and would
 	4. Ezetap app key or login credentials to Ezetap service
 	5. Ezetap device to test
 
-## Installation and Setup##
-Please [download the latest build of the Ezetap Android SDK](ezetap_sdk_package_2_0_5.zip). Ezetap 
-team will set up the necessary Merchant credentials, AppKey and other details for you. 
+##[Download SDK]({{site.base_url}}/downloads/client-sdk/android/ezetap_sdk_android_2_0_8.zip)##
+
+You can download the latest version of Ezetap Android SDK by clicking the link above. Ezetap support team will set up and communicate with the necessary Merchant account, AppKey and other details for you.
 
 ###Package Components###
 
 The Ezetap SDK package consists of the following components.
 
-* The Ezetap SDK package delivered as [`ezetap_sdk_package_2_0.zip`](ezetap_sdk_package_2_0.zip). This package contains the following:
+* The Ezetap SDK package contains the following:
   1. `ezetap_sdk_2_0_buildnumber.jar` : This jar contains the necessary binaries required to integrate Ezetap Payment into your application. This jar is to be added into the libs directory of your Android application.
   1. `ezetap_sdk_sample_code_2_0_buildnumber.zip` : This archive file contains an Android app sample that demonstrates the usage of the Ezetap SDK.
   1. `ezetap_sdk_2_0_buildnumber.buildnumber` : an empty marker file denoting the version number and build number of the Ezetap SDK.
@@ -83,7 +83,7 @@ necessary to call Ezetap APIs via the Service App. As and when Ezetap rectifies 
 It is recommended that calling apps periodically check for updates and stay current by calling the [checkForUpdate]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapPayApi.html#checkForUpdate) API provided by the Ezetap SDK. You may transform the JSON response into an instance of [`EzetapAppUpdateResponse`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapAppUpdateResponse.html) and based on the severity of the update, choose to update. The Service App may be updated by creating an instance of [`EzetapDownloadUtils`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapDownloadUtils.html) and calling `start()`. This will download the latest service app and update it on the mobile device.
 
 
-  void checkForUpdate(Activity context, int reqCode, String username);
+	void checkForUpdate(Activity context, int reqCode, String username);
 
 > Use this API to check if there is an update to the Ezetap Service App. It is recommended that this API be called by application implementations periodically. For example, you may choose to call this API at application start time or at login time.
 
@@ -109,7 +109,7 @@ In the above cases, the Ezetap Service app prompts the user with a message `Resp
 
 In all the above cases, the Ezetap service app prompts the user that an `Incomplete Transaction` has been detected. The user is expected to tap `Retrieve Transaction` to check the status of the transaction and retrieve it. The user can then complete it, in case of transaction success and obtain the customer's signature.  The Ezetap SDK also provides an API that calling applications may choose to call at any time to check for and go through the process for an incomplete transaction, if found.
 
-  void checkForIncompleteTransaction(Activity context, int reqCode, String username);
+	void checkForIncompleteTransaction(Activity context, int reqCode, String username);
 
 >  Use this API to check if there is an incomplete transaction. Any card transaction that was initiated, but failed to receive a response due to any of the conditions listed above will be detected and the user will be guided through the steps to complete the transaction.
 
