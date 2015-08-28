@@ -40,7 +40,7 @@ Upon receiving the Ezetap SDK package, unzip the contents into a directory of ch
 
 You are now ready to invoke Ezetap APIs using which you can integrate Ezetap's Card, Cash and other capabilities into your application.
 
-## Ezetap APIs
+## Ezetap APIs     :[API Doc]({{site.baseurl}}/api-docs/android/native/index.html)
 This section gives a brief introduction to the APIs available as part of the Ezetap SDK.
 
   | Name                                                             | Meaning                                                                                                                                                                                                                                                                  |
@@ -50,7 +50,7 @@ This section gives a brief introduction to the APIs available as part of the Eze
   | [`EzetapPayApi`](javadoc/com/ezetap/sdk/EzetapPayApi.html)       | Upon getting a handle to an instance of this class using the above APIs, you may invoke Ezetap APIs                                                                                                                                                                      |
 
 
-Note: Please refer to the [complete API Javadoc](javadoc/index.html) provided as part of the Ezetap SDK package to
+Note: Please refer to the [complete API Javadoc]({{site.baseurl}}/api-docs/android/native/index.html) provided as part of the Ezetap SDK package to
 learn more about the Ezetap APIs. The accompanied sample code contains examples to help understand how to invoke the Ezetap APIs.
 
 ## Handling Responses
@@ -80,7 +80,7 @@ Hint: For Transaction APIs, you may create an instance of [`TransactionDetails`]
 Access to the Ezetap APIs is provided and facilited by the Ezetap Service App. The Ezetap SDK provides the API interface 
 necessary to call Ezetap APIs via the Service App. As and when Ezetap rectifies issues and enhances the Service App, updates are made available to Ezetap SDK users.
 
-It is recommended that calling apps periodically check for updates and stay current by calling the [checkForUpdate](javadoc/com/ezetap/sdk/EzetapPayApi.html#checkForUpdate\(android.app.Activity%2C%20int%2C%20java.lang.String) API provided by the Ezetap SDK. You may transform the JSON response into an instance of [`EzetapAppUpdateResponse`](javadoc/com/ezetap/sdk/EzetapAppUpdateResponse.html) and based on the severity of the update, choose to update. The Service App may be updated by creating an instance of [`EzetapDownloadUtils`](javadoc/com/ezetap/sdk/EzetapDownloadUtils.html) and calling `start()`. This will download the latest service app and update it on the mobile device.
+It is recommended that calling apps periodically check for updates and stay current by calling the [checkForUpdate]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapPayApi.html#checkForUpdate\(android.app.Activity%2C%20int%2C%20java.lang.String) API provided by the Ezetap SDK. You may transform the JSON response into an instance of [`EzetapAppUpdateResponse`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapAppUpdateResponse.html) and based on the severity of the update, choose to update. The Service App may be updated by creating an instance of [`EzetapDownloadUtils`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapDownloadUtils.html) and calling `start()`. This will download the latest service app and update it on the mobile device.
 
 
 	void checkForUpdate(Activity context, int reqCode, String username);
@@ -93,10 +93,10 @@ It is recommended that calling apps periodically check for updates and stay curr
     */
 
 ### EzetapAppUpdateResponse
-A bean representation of the response from the Ezetap server to the `checkForUpdate` API call. Please refer to the [javadoc](javadoc/index.html) to know more about the attributes available.
+A bean representation of the response from the Ezetap server to the `checkForUpdate` API call. Please refer to the [javadoc]({{site.baseurl}}/api-docs/android/native/index.html) to know more about the attributes available.
 
 ### EzetapDownloadUtils
-Provides utilities to download and install updates to the Ezetap Service App. Create an instance of [`EzetapDownloadUtils`](javadoc/com/ezetap/sdk/EzetapDownloadUtils.html) and call the `start()` method. This will initiate the download and prompt the user to update, if one is found.
+Provides utilities to download and install updates to the Ezetap Service App. Create an instance of [`EzetapDownloadUtils`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapDownloadUtils.html) and call the `start()` method. This will initiate the download and prompt the user to update, if one is found.
 
 ## Incomplete Transactions
 
@@ -114,16 +114,9 @@ In the above cases, the Ezetap Service app prompts the user with a message `Resp
 
 In all the above cases, the Ezetap service app prompts the user that an `Incomplete Transaction` has been detected. The user is expected to tap `Retrieve Transaction` to check the status of the transaction and retrieve it. The user can then complete it, in case of transaction success and obtain the customer's signature.  The Ezetap SDK also provides an API that calling applications may choose to call at any time to check for and go through the process for an incomplete transaction, if found.
 
-```java
   void checkForIncompleteTransaction(Activity context, int reqCode, String username);
-  /**
-   * Use this API to check if there is an incomplete transaction.
-   * Any card transaction that was initiated, but failed to receive
-   * a response due to any of the conditions listed above will be
-   * detected and the user will be guided through the steps to
-   * complete the transaction.
-   */
-```
+
+>  Use this API to check if there is an incomplete transaction. Any card transaction that was initiated, but failed to receive a response due to any of the conditions listed above will be detected and the user will be guided through the steps to complete the transaction.
 
 ### Recommendation
 
@@ -138,7 +131,7 @@ This is especially important in cases where Ezetap is primarily used for Card pa
 
 ## Typical API Usage
 
-All these APIs below are in [`EzetapPayApi`](javadoc/com/ezetap/sdk/EzetapPayApi.html).
+All these APIs below are in [`EzetapPayApi`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapPayApi.html).
 
   | API                     | Usage                                                                                                                                                                                                                                                                                                                               |
   | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
