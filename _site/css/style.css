@@ -22,11 +22,6 @@ h1, h2, h3, h4 {
   color: black;
 }
 
-h4 {
-	margin-top:30px;
-	margin-bottom:10px;
-}
-
 h2 {
 	background-color: #d0d0d0;
 	display:block;
@@ -39,17 +34,23 @@ h2 {
 
 h3:after {
 	margin-top:5px;
-		margin-bottom:20px;
-    content:' ';
-    display:block;
-    border:1px solid #d0d0d0;
-    border-radius:2px;
-    -webkit-border-radius:2px;
-    -moz-border-radius:2px;
-    box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
-    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
-    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+	margin-bottom:20px;
+  content:' ';
+	display:block;
+	border:1px solid #d0d0d0;
+  border-radius:2px;
+  -webkit-border-radius:2px;
+  -moz-border-radius:2px;
+  box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+  -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+  -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
 }
+
+h4 {
+	margin-top:30px;
+	margin-bottom:20px;
+}
+
 
 #footer {
   background-color: #fdcd60;
@@ -62,6 +63,8 @@ table {
 	border-width: 1px;
 	border-color: #666666;
 	border-collapse: collapse;
+	margin-bottom:20px;
+	margin-top:10px;
 }
 table th {
 	border-width: 1px;

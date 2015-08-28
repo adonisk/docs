@@ -1,13 +1,13 @@
 ---
 title: Windows SDK
-description: Integrating a windows application using Ezetap .NET sdk
-type: Client SDK
+description: Integrating windows application using a .NET SDK
+type: Client Side
 layout: default
 ---
 
-This section is for people who have existing windows applications (ver 7 or 8.1) running on a desktop and planning to integrate Ezetap mPoS solution using a standard windows.NET SDK.
+This section is for people who have existing windows applications (ver 7 or 8.1) running on a desktop and planning to integrate Ezetap PoS solution using a standard windows.NET SDK.
 
-> **Note:** If you are looking for a standalone mPoS solution for windows desktop or tablet, please refer to the ``Ezetap Basic mPoS (for windows)`` documentation
+> **Note:** If you are looking for a standalone PoS solution for windows, please refer `Ezetap Windows PoS` documentation
  
  
 ####What do you need to get started####
@@ -16,35 +16,38 @@ This section is for people who have existing windows applications (ver 7 or 8.1)
 	2. A Windows tablet / desktop (with a connection to internet) to test the application 
 	3. A DEMO merchant setup and login credentials to Ezetap service
 	4. Ezetap device connected to the tablet / desktop via USB
+	5. Downloaded Ezetap Windows SDK
 
-## Installation and Setup##
+##[Download SDK]({{site.base_url}}/downloads/client-sdk/windows/ezetap_sdk_windows_2_0_8.zip)##
 
-You can download the latest version of Ezetap Windows SDK here: **[ezetap_windows_sdk_1_0_0.zip]({{site.base_url}}/downloads/client-sdk/windows/ezetap_windows_sdk_1_0_0.zip)**. 
-
-> Ezetap support team will set up and communicate with the necessary Merchant account, AppKey and other details for you.
+You can download the latest version of Ezetap Windows SDK by clicking the link above. Ezetap support team will set up and communicate with the necessary Merchant account, AppKey and other details for you.
 
 ###Package Components###
 
 The Ezetap Windows SDK package contains the following components.
 
-1. `ezetap_windows_pos_x_x_x.exe`: This self extracting executable installs a basic windows pos application as well as some core binaries required for the windows SDK to integrate Ezetap payment solution into your application.
-2. `ezetap_windows_sdk_x_x_x.zip`: This zip file contains a .NET DLL along with dependent libraries. Extract this set of DLLs into a folder visible to your Visual Studio project and add them as dependent libraries in your Visual Studio project.
+1. `ezetap_pos_windows_2_0_8.exe`: This self extracting executable installs a basic windows pos application as well as some core binaries required for the windows SDK to integrate Ezetap payment solution into your application.
+2. `ezetap_api_windows_2_0_8.zip`: This zip file contains a .NET DLL along with dependent libraries. Extract this set of DLLs into a folder visible to your Visual Studio project and add them as dependent libraries in your Visual Studio project.
 3. The Ezetap Windows SDK is compatible with `DotNET version 4.5 or higher` 
 
 ###Visual Studio Setup###
 
-Your windows .NET Visual Studio project should have 
+Once the Ezetap API DLLs are imported in the Windows .NET Visual Studio project, you should have references for the libraries in your project and you can use the API as any other .NET library call, native to your .NET environment. 
 
 ## API Documentation ##
 
-The primary interface to the API is through a Singleton class called **EzeAPI**. The following section describes the operations available on the EzeAPI for performing various payment related transactions exposed by the API. 
-
-The following are the operations and attributes are available for use on the EzeAPI:
+The primary interface to the API is through a Singleton class called `EzeAPI`. The following section describes the operations available on EzeAPI for performing various payment related transactions:
 
 	public class EzeAPI
 	{
 		public static EzeAPI create(ServerType serverType);
 		public static EzeResult login(LoginMode mode, String userName, String passkey);
+		public EzeResult prepareDevice(); 
+		public EzeResult takePayment(PaymentType type, double amount, PaymentOptions options); 
+		public EzeResult attachSignature(string txnId, ImageType imageType, ByteString imageData, int height, int width, double tipAmount);
+		public void setMessageHandler(EzeNotification handler);
+		private EzeAPI logout();
+		public static void destroy();
 	}
 
 	
@@ -52,7 +55,7 @@ The following are the operations and attributes are available for use on the Eze
 
 This section documents the operations and attributes available on the EzeAPI
 
-####Method: Create####
+####Create####
 
         public static EzeAPI create(ServerType serverType)
 
@@ -61,7 +64,7 @@ The first operation exposed on the API is the Create() method. It is used to cre
 See the [Enumerations](#Enumerations) section for more details on the Enums. 
 
 
-####Method: Login####
+####Login####
 
 	    public EzeResult login(LoginMode mode, String userName, String passkey) 
 
@@ -69,16 +72,17 @@ This method is used to login to Ezetap server. It accepts the following paramete
 
 
 
-| Input Field     | Description |
-|----------------|-----------|
-| LoginMode   | This is a required field with 2 values PASSWORD or APPKEY. When LoginMode is ``PASSWORD``, *userName* and *Passkey* fields are used for authenticating the individual users' credentials against the merchant account. Only valid users in the merchant account are allowed to login. When LoginMode is ``APPKEY``, the appKey registered with the merchant (*provided to the merchant along with Ezetap setup documentation*) should be passed in the *passKey* field. *userName* is not validated against the merchant, but it is stored along with the payment details for all transactoins.  |
-| userName    | A valid userName in the merchant account |
-| passkey    | When *LoginMode* is *PASSWORD*, individual users' password should be passed in this field. For *APPKEY*, the merchant's *appKey* should be passed in this field. |
+| Input Field | Type | Description |
+|------------ |----  |-----------|
+| LoginMode   |Input | This is a required field with 2 values PASSWORD or APPKEY. When LoginMode is ``PASSWORD``, *userName* and *Passkey* fields are used for authenticating the individual users' credentials against the merchant account. Only valid users in the merchant account are allowed to login. When LoginMode is ``APPKEY``, the appKey registered with the merchant (*provided to the merchant along with Ezetap setup documentation*) should be passed in the *passKey* field. *userName* is not validated against the merchant, but it is stored along with the payment details for all transactoins.  |
+| userName    |Input  | A valid userName in the merchant account |
+| passkey     |Input  | When *LoginMode* is *PASSWORD*, individual users' password should be passed in this field. For *APPKEY*, the merchant's *appKey* should be passed in this field. |
+| EzeResult   |Output | returns the details of the login transaction. | 
 
 Please refer [EzeResult](#EzeResult) section for the details of the response
 
 
-####Method: Prepare Device####
+####Prepare Device####
 
 	    public EzeResult prepareDevice() 
 
@@ -89,34 +93,67 @@ Prepare device method should be invoked to prepare the Ezetap device for card tr
 
 > Note: If the EzeAPI returns an error related to *device not ready* during postPayment() transaction, please implement an option for the user to prepare the device as needed.
 
-####Method: Take Payment####
+####Take Payment####
 
 	    public EzeResult takePayment(PaymentType type, double amount, PaymentOptions options) 
 
-Take payment is the primary interface for payment transactions. 
+Take payment is the primary interface for payment transactions. TakePayment interacts with the device to enter the card details, PIN etc if it is a card payment, works with the Ezetap server and returns an `EzeResult`. Details regarding values of PaymentType and PaymentOptions classes can be found below in the respective class details. 
 
-####Method: Attach Signature####
+This method takes the following parameters:
 
-        public EzeResult attachSignature(string txnId, ImageType imageType, ByteString imageData, int height, int width, double tipAmount)
+| Field Name     | Type    | Description |
+|--------        | --------| ----------- |
+|paymentType     | Input   | This enum defines the different payment types that are accepted by the API |
+| amount         | Input   | `double` value of the payment amount field |
+| paymentOptions | Inupt   | This class contains the details of payment transaction, pecific to different payment types|
+| EzeResult      | Output  | holds the result of the transaction as well as the details related to the specific transaction including transcation Id, MID, TID, authCode, orderId, reference number etc| 
 
-####Method: Set Message Handler####
+
+####Attach Signature####
+
+        public EzeResult attachSignature(string txnId, ImageType imageType, ByteString imageData, 
+				int height, int width, double tipAmount)
+
+AttachSignature is an optional method is can be invoked after a successful payment transaction to capture store the digital signature of the paying customer. Digital signature is not required for all transactions, but it is dictated, mostly by the banks for specific kind of card transactions. In addition, merchants can enforce a digital signature for other payments like card and/or cheque based on their business needs. EzeAPI allows to capture the signature, which will be stored on the Ezetap server along with the other transaction details. 
+
+| Field Name | Type    | Description |
+|--------    | --------| ----------- |
+| txnId		   | Input   | Transaction id of the successful payment transaction. It is returned when calling a `takePayment` method |
+| imageType  | Input   | Enum representing the type of image (BMP, JPEG, PNG etc). See details below |
+| imageData  | Input   | A bytestring representation of the raw signature image data |
+| height     | Input   | `integer` representing the height of the image in pixels |
+| width      | Input   | `integer` representing the width of the image in pixels |
+| tipAmount  | Input   | (optional) `double` value of the tip amount if entered while taking signature |
+| EzeResult  |Output   | returns the result of the attachSignature method invocation | 
+
+
+####Set Message Handler####
 
         public void setMessageHandler(EzeNotification handler)
 
-####Method: Logout####
+Ezetap Windows SDK is a state machine that interacts with the device and Ezetap server passing different data elements during the various method invocations on the EzeAPI. During this period, various events and notifications are generated. If the calling windows application likes to be notified of these events and notifications, they can set the message handler. EzeAPI will register this handler and notify the calling applications of these events.
+
+``public delegate void EzeNotification(String notifyMessage, EventArgs args);``
+	
+**Note**: EzeNotification is a delegate method. Any method conforming to this method signature can be
+	passed by the calling application.
+
+####Logout####
 
         private EzeAPI logout()
 
 Logout method is used to log out a user from the API. This method is used in a situation when multiple users are needing to use the API. While the API will be instantiated and continuously running, individual users will log in and out of the API using the login and logout methods. When using the APPKEY mode to login, there is no need to logout. Instead, destroy() method is recommended to be used to close down the API.
 
 
-####Method: Destroy####
+####Destroy####
 
         public static void destroy()
 
 This is the last operation that should be invoked on the Ezetap SDK to destroy the EzeAPI instance. This method closes the connection to Ezetap server, relinquishes the connection to the device and gracefully exists from the API.
 
 ###Class PaymentOptions###
+
+This class is used in the `takePayment` method to pass in the optional parameters for specific payment types.
 
 	public class PaymentOptions 
 	{
@@ -127,16 +164,22 @@ This is the last operation that should be invoked on the Ezetap SDK to destroy t
 		public PaymentOptions setChequeDate(String chequeDate);
 	}
 
-The following 
+| Field Name |  Description |
+|--------    |  ----------- |
+| orderId		 | unique orderId the payment transaction. This links to the order for which the payment is taken| 
+| receiptType| electronic or paper receipt |
+| chequeNo   | cheque number for a cheque payment |
+| bankCode   | IFSC bank code for a cheque payment |
+| chequeDate | cheque date for a cheque payment |
 
 ###Class EzeResult###
 
 EzeResult is returned whenever a response is returned to the user while invoking the EzeAPI. 
 
-    public class EzeResult 
+	public class EzeResult 
 	{
 		public PaymentResult getPaymentResult();
-	    public EventName getEventName();
+	  public EventName getEventName();
 		public Status getStatus();
 		public string getCode();
 		public string getMessage();
@@ -201,7 +244,7 @@ The methods available on this class and their details are given below:
 
 The following section documents all the enumerations that are available for use while invoking the Ezetap SDK.
 
-####Enum ServerType####
+####ServerType####
 
 ServerType enum is passed while creating the EzeAPI instance. You can either pass PROD or DEMO values. This enum configures the API to either work with the production or DEMO version of the Ezetap Service.
 
@@ -210,7 +253,7 @@ ServerType enum is passed while creating the EzeAPI instance. You can either pas
         PROD, DEMO
     }
 
-####Enum LoginMode####
+####LoginMode####
 
 Users can login to the EzeAPI using either username/password or APPKEY. When  using username/password, the LoginMode is set to PASSWORD and the individual user is authenticated using the users login credentials against the merchant. When using APPKEY, authentication is performed against the APPKEY present in the merchant account.
 
@@ -219,7 +262,7 @@ Users can login to the EzeAPI using either username/password or APPKEY. When  us
         PASSWORD, APPKEY
     }
 
-####Enum Status####
+####Status####
 
 Status enum is returned as part of EzeResult that indicates if a an API call was successful or failed. 
 
@@ -228,7 +271,7 @@ Status enum is returned as part of EzeResult that indicates if a an API call was
         SUCCESS, FAILURE
     }
 
-####Enum PaymentType####
+####PaymentType####
 
 PaymentType enum is passed as input to takePayment() API call and can accept CARD, CASH or CHEQUE as valid payment types
 
@@ -237,7 +280,7 @@ PaymentType enum is passed as input to takePayment() API call and can accept CAR
         CARD, CASH, CHEQUE
     }
 
-####Enum ImageType####
+####ImageType####
 
 ImageType enum is used in the attachSignature() API call for passing eSignature data in one of the acceptable image formats. 
 
@@ -246,11 +289,12 @@ ImageType enum is used in the attachSignature() API call for passing eSignature 
         PNG, GIF, JPEG, BMP
     }
 
-####Enum EventName####
+####EventName####
 
 EventName enum is returned as part of the EzeResult object indicating the different API method calls invoked on EzeAPI
 
     public enum EventName
     {
-        LOGIN, LOGOUT, EXIT, PREPARE_DEVICE, NOTIFICATION, TAKE_PAYMENT, CREATE, SET_SERVER_TYPE, SEND_RECEIPT, ATTACH_SIGNATURE, OTHER
+        LOGIN, LOGOUT, EXIT, PREPARE_DEVICE, NOTIFICATION, TAKE_PAYMENT, CREATE, SET_SERVER_TYPE, 
+				SEND_RECEIPT, ATTACH_SIGNATURE, OTHER
     }

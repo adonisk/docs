@@ -1,5 +1,5 @@
 # Site settings
-title: Docs
+title: Developers
 email: developer@ezetap.com
 description: Home pate for Ezetap SDK documentation
 baseurl: "/docs" # the subpath of your site, e.g. /blog/
@@ -13,8 +13,8 @@ markdown: kramdown
 
 
 page_types:
-  - User Docs
-  - Client SDK
-  - Server API
+  - Client Side
+  - Server Side
+  - Help
 
 home_category: home

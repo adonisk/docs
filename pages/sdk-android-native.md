@@ -1,20 +1,20 @@
 ---
-title: Android Native
-description: Integrating a native Android app into Ezetap using Android SDK
-type: Client SDK
+title: Android SDK - Native
+description: Integrating a native app using Android SDK
+type: Client Side
 layout: default
 ---
 
-This section is meant for people who have existing android native apps and would like to integrate Ezetap mPoS solution through a native android SDK implementation. 
+This section is meant for people who have existing android native apps and would like to integrate Ezetap PoS solution through a native android SDK implementation. 
 
-> **Note:** If you are looking for a standalone mPoS solution for Android mobile or tablet, please refer to the ``Ezetap Basic mPoS (for Android)`` documentation
+> **Note:** If you are looking for a standalone PoS solution for Android mobile or tablet, please refer to the `Ezetap Android PoS` documentation
 
 #### What you need to get started####
 
 	1. Android development environment
 	2. Android phone that can connect to internet
 	3. This documentation
-	4. Ezetap license key to put in your code or login credentials to Ezetap service
+	4. Ezetap app key or login credentials to Ezetap service
 	5. Ezetap device to test
 
 ## Installation and Setup##
@@ -80,19 +80,17 @@ Hint: For Transaction APIs, you may create an instance of [`TransactionDetails`]
 Access to the Ezetap APIs is provided and facilited by the Ezetap Service App. The Ezetap SDK provides the API interface 
 necessary to call Ezetap APIs via the Service App. As and when Ezetap rectifies issues and enhances the Service App, updates are made available to Ezetap SDK users.
 
-It is recommended that calling apps periodically check for updates and stay current by calling the [`checkForUpdate`](javadoc/com/ezetap/sdk/EzetapPayApi.html#checkForUpdate\(android.app.Activity%2C%20int%2C%20java.lang.String) API provided by the Ezetap SDK. You may transform the JSON response into an instance of [`EzetapAppUpdateResponse`](javadoc/com/ezetap/sdk/EzetapAppUpdateResponse.html) and based on the severity of the update, choose to update. The Service App may be updated by creating an instance of [`EzetapDownloadUtils`](javadoc/com/ezetap/sdk/EzetapDownloadUtils.html) and calling `start()`. This will download the latest service app and update it on the mobile device.
+It is recommended that calling apps periodically check for updates and stay current by calling the [checkForUpdate](javadoc/com/ezetap/sdk/EzetapPayApi.html#checkForUpdate\(android.app.Activity%2C%20int%2C%20java.lang.String) API provided by the Ezetap SDK. You may transform the JSON response into an instance of [`EzetapAppUpdateResponse`](javadoc/com/ezetap/sdk/EzetapAppUpdateResponse.html) and based on the severity of the update, choose to update. The Service App may be updated by creating an instance of [`EzetapDownloadUtils`](javadoc/com/ezetap/sdk/EzetapDownloadUtils.html) and calling `start()`. This will download the latest service app and update it on the mobile device.
 
-```java
 
-   void checkForUpdate(Activity context, int reqCode, String username);
-   /**
-    * Use this API to check if there is an update to the Ezetap
-    * Service App. It is recommended that this API be called by
+	void checkForUpdate(Activity context, int reqCode, String username);
+	/**
+		* Use this API to check if there is an update to the Ezetap
+		* Service App. It is recommended that this API be called by
     * application implementations periodically.
     * For example, you may choose to call this API at application
     * start time or at login time.
     */
-```
 
 ### EzetapAppUpdateResponse
 A bean representation of the response from the Ezetap server to the `checkForUpdate` API call. Please refer to the [javadoc](javadoc/index.html) to know more about the attributes available.

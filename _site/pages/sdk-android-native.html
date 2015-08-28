@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<title>
-			 Android Native 
+			 Android SDK - Native 
 		</title>
     
-		<meta name="description" content="Integrating a native Android app into Ezetap using Android SDK">
+		<meta name="description" content="Integrating a native app using Android SDK">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -46,13 +46,13 @@
     	<!-- Collect the nav links, forms, and other content for toggling -->
     	<div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-      		<li><h3><span style="color:white">Docs</span></h3></li>
+      		<li><h3><span style="color:white">Developers</span></h3></li>
 				</ul>
     		<ul class="nav navbar-nav navbar-right">
 					
 						<li class="dropdown">
           		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
-								aria-haspopup="true" aria-expanded="false">User Docs <span class="caret"></span></a>
+								aria-haspopup="true" aria-expanded="false">Client Side <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								
 									
@@ -64,29 +64,11 @@
 									
 								
 									
-								
-									
-								
-							</ul>
-						</li>
-					
-						<li class="dropdown">
-          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
-								aria-haspopup="true" aria-expanded="false">Client SDK <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								
+        						<li><a href="/docs/pages/sdk-android-hybrid.html">Android SDK - Hybrid JS</a></li>
 									
 								
 									
-								
-									
-								
-									
-        						<li><a href="/docs/pages/sdk-android-hybrid.html">Android Hybrid</a></li>
-									
-								
-									
-        						<li><a href="/docs/pages/sdk-android-native.html">Android Native</a></li>
+        						<li><a href="/docs/pages/sdk-android-native.html">Android SDK - Native</a></li>
 									
 								
 									
@@ -98,11 +80,37 @@
 					
 						<li class="dropdown">
           		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
-								aria-haspopup="true" aria-expanded="false">Server API <span class="caret"></span></a>
+								aria-haspopup="true" aria-expanded="false">Server Side <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								
 									
-        						<li><a href="/docs/pages/api-notification.html">Notifications API</a></li>
+        						<li><a href="/docs/pages/api-notification.html">Notification API</a></li>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</ul>
+						</li>
+					
+						<li class="dropdown">
+          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+								aria-haspopup="true" aria-expanded="false">Help <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								
+									
+								
+									
+        						<li><a href="/docs/pages/faq-home.html">FAQ</a></li>
 									
 								
 									
@@ -132,13 +140,13 @@
 				</div>
 				<div class="col-md-10 page">
 					<div class="page-header">
-						<h1>Android Native&nbsp;<small>Integrating a native Android app into Ezetap using Android SDK</small></h1>
+						<h1>Android SDK - Native&nbsp;<small>Integrating a native app using Android SDK</small></h1>
 					</div>
 					<div class="page-content">
-						<p>This section is meant for people who have existing android native apps and would like to integrate Ezetap mPoS solution through a native android SDK implementation.</p>
+						<p>This section is meant for people who have existing android native apps and would like to integrate Ezetap PoS solution through a native android SDK implementation.</p>
 
 <blockquote>
-  <p><strong>Note:</strong> If you are looking for a standalone mPoS solution for Android mobile or tablet, please refer to the <code>Ezetap Basic mPoS (for Android)</code> documentation</p>
+  <p><strong>Note:</strong> If you are looking for a standalone PoS solution for Android mobile or tablet, please refer to the <code>Ezetap Android PoS</code> documentation</p>
 </blockquote>
 
 <h4 id="what-you-need-to-get-started">What you need to get started</h4>
@@ -146,7 +154,7 @@
 <pre><code>1. Android development environment
 2. Android phone that can connect to internet
 3. This documentation
-4. Ezetap license key to put in your code or login credentials to Ezetap service
+4. Ezetap app key or login credentials to Ezetap service
 5. Ezetap device to test
 </code></pre>
 
@@ -262,19 +270,17 @@ retrieved as a <code>String Extra</code> from the <code>Intent</code>, using the
 <p>Access to the Ezetap APIs is provided and facilited by the Ezetap Service App. The Ezetap SDK provides the API interface 
 necessary to call Ezetap APIs via the Service App. As and when Ezetap rectifies issues and enhances the Service App, updates are made available to Ezetap SDK users.</p>
 
-<p>It is recommended that calling apps periodically check for updates and stay current by calling the [<code>checkForUpdate</code>](javadoc/com/ezetap/sdk/EzetapPayApi.html#checkForUpdate(android.app.Activity%2C%20int%2C%20java.lang.String) API provided by the Ezetap SDK. You may transform the JSON response into an instance of <a href="javadoc/com/ezetap/sdk/EzetapAppUpdateResponse.html"><code>EzetapAppUpdateResponse</code></a> and based on the severity of the update, choose to update. The Service App may be updated by creating an instance of <a href="javadoc/com/ezetap/sdk/EzetapDownloadUtils.html"><code>EzetapDownloadUtils</code></a> and calling <code>start()</code>. This will download the latest service app and update it on the mobile device.</p>
+<p>It is recommended that calling apps periodically check for updates and stay current by calling the [checkForUpdate](javadoc/com/ezetap/sdk/EzetapPayApi.html#checkForUpdate(android.app.Activity%2C%20int%2C%20java.lang.String) API provided by the Ezetap SDK. You may transform the JSON response into an instance of <a href="javadoc/com/ezetap/sdk/EzetapAppUpdateResponse.html"><code>EzetapAppUpdateResponse</code></a> and based on the severity of the update, choose to update. The Service App may be updated by creating an instance of <a href="javadoc/com/ezetap/sdk/EzetapDownloadUtils.html"><code>EzetapDownloadUtils</code></a> and calling <code>start()</code>. This will download the latest service app and update it on the mobile device.</p>
 
-<p>```java</p>
-
-<p>void checkForUpdate(Activity context, int reqCode, String username);
-   /**
-    * Use this API to check if there is an update to the Ezetap
-    * Service App. It is recommended that this API be called by
-    * application implementations periodically.
-    * For example, you may choose to call this API at application
-    * start time or at login time.
-    */
-```</p>
+<pre><code>void checkForUpdate(Activity context, int reqCode, String username);
+/**
+	* Use this API to check if there is an update to the Ezetap
+	* Service App. It is recommended that this API be called by
+* application implementations periodically.
+* For example, you may choose to call this API at application
+* start time or at login time.
+*/
+</code></pre>
 
 <h3 id="ezetapappupdateresponse">EzetapAppUpdateResponse</h3>
 <p>A bean representation of the response from the Ezetap server to the <code>checkForUpdate</code> API call. Please refer to the <a href="javadoc/index.html">javadoc</a> to know more about the attributes available.</p>
@@ -370,7 +376,6 @@ necessary to call Ezetap APIs via the Service App. As and when Ezetap rectifies 
         </p>
       </div>
     </div>
-
 
   </body>
 

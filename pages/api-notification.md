@@ -1,41 +1,38 @@
 ---
-title: Notifications API
+title: Notification API
 description: Receiving post transaction notifications via JSON API callback
-type: Server API
+type: Server Side
 layout: default 
 ---
 
-##Overview##
+This document describes how Ezetap customers can integrate with `Ezetap Notification API` to receive notifications when payment transactions are posted in the Ezetap server. This can also be used to reconcile customer's enterprise systems when payment transactions are done against their business transactions. Once setup, these notification will be posted to the customer provided API end points. Both `success` and `failure` transactions will be posted on these end points. 
 
-This document provides information about how Ezetap customers can integrate with Ezetap’s data posting APIs. Currently, Ezetap has the ability to post to external applications for Payment transactions. Ezetap can post to an external system whenever a payment transaction happens. The post happens even when a transaction fails due to some reason. Merchants need to provide a URL to which Ezetap can post.
+####How to activate Notification API####
 
-> Ezetap posts the notification to external systems and waits for a HTTP Success response (Status 200). In case a HTTP Success is not received (due to network connectivity failure, timeout etc.), Ezetap will attempt to notify the external system for a maximum of 3 times (at an interval of 10 minutes each). If no HTTP Success response is received after 3 attempts, the notification is marked as FAILED (no additional attempts will be tried). 
+1. Customer should expose a `HTTP/POST` end point accepting `JSON message body`
+2. Notification API needs to be enabled for the merchant on the merchant portal
 
+Ezetap sends a POST message on the customer's API end point and waits for a HTTP/Success response (Status 200). In case a HTTP Success is not received (`due to various reasons, including network connectivity, timeout etc.`), Ezetap will retry upto 3 times (at an interval of 10 minutes each). If no HTTP/Success response is received after the 3 attempts, the notification is marked as FAILED and no additional attempts will be made. 
 
+	There may be scenarios when the customer has received the notification and processed them, but failed in responding to Ezetap. In such cases, Ezetap will keep retrying. In such cases, customer's application should be able to handle (and ignore) duplicate notifications for the same transaction.
 
-There may be scenarios when merchant has successfully received the data but Ezetap couldn't receive a response. In such cases, Ezetap will keep retrying. Merchant application should be able to handle multiple posts for the same transaction.
+> NOTE: Over time, the Notification API may be upgraded with additional parameters. These additional parameters will be optional and will not impact existing customers. But the customer's API end point should be able to handle (and ignore) these additional optional parameters. This is to ensure merchant's application doesn't break when new attributes are introduced in the notification API.
 
-###Configuration###
+## API Documentation ##
 
-Merchant has to provide Ezetap with a URL where data can be posted. Also, Ezetap needs to whitelist IP address where merchant runs the application.
+The API end point needs to conform to the following specification. 
 
 The following headers are sent in the HTTP request.
 	
-	URL: Registered Merchant URL
+	URL: Any Customer URL (REST API)
 	HTTP Method: POST
 	Content-Type: application/json
 	Request Body: JSON encoded key-value pairs are sent in the request body.
 
-Merchant needs to ignore any undocumented attributes that may come with the request body. Merchants application should not expect undocumented fields to be present in future. It will ensure merchant's application doesn't break when Ezetap introduces new fields or removes undocumented fields.
-
-## API Documentation ##
-
-JSON structure for different events and processes are documented below.
-
-> Some fields may not be available all the time. For e.g. In case of CASH transactions, the body won't have card related fields like  formatted card no. or authorization code from payment gateway.
+JSON structure for different events and processes are documented below. Some fields are optional, for e.g. Cheque payment related fields (bank details etc) will be populated only for cheque transactions. Card related fields will be populated only for Card payment.
 
 
-###Callback  JSON###
+### JSON Specification###
 
 JSON that will be posted will have this structure.
 
