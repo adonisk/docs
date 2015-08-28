@@ -1,7 +1,7 @@
 ---
 title: Merchant Portal configuration
 description: Understanding Merchant Configuration Settings
-type: Client Side
+type: Server Side
 layout: default
 ---
 
