@@ -17,7 +17,7 @@ This section is meant for people who have existing android native apps and would
 	4. Ezetap app key or login credentials to Ezetap service
 	5. Ezetap device to test
 
-##[Download SDK]({{site.base_url}}/downloads/client-sdk/android/ezetap_sdk_android_2_0_8.zip)##
+##[Download SDK]({{site.base_url}}/downloads/client-sdk/android/ezetap_sdk_android_2_0_7.zip)##
 
 You can download the latest version of Ezetap Android SDK by clicking the link above. Ezetap support team will set up and communicate with the necessary Merchant account, AppKey and other details for you.
 
@@ -26,7 +26,7 @@ You can download the latest version of Ezetap Android SDK by clicking the link a
 The Ezetap SDK package consists of the following components.
 
 * The Ezetap SDK package contains the following:
-  1. `ezetap_sdk_2_0_buildnumber.jar` : This jar contains the necessary binaries required to integrate Ezetap Payment into your application. This jar is to be added into the libs directory of your Android application.
+  1. `ezetap_sdk_android_2_0_7.jar` : This jar contains the necessary binaries required to integrate Ezetap Payment into your application. This jar is to be added into the libs directory of your Android application.
   1. `ezetap_sdk_sample_code_2_0_buildnumber.zip` : This archive file contains an Android app sample that demonstrates the usage of the Ezetap SDK.
   1. `ezetap_sdk_2_0_buildnumber.buildnumber` : an empty marker file denoting the version number and build number of the Ezetap SDK.
   1. [`javadoc`](javadoc/index.html) :  A directory containing developer documentation in Javadoc format for the Ezetap APIs available, using which integration is to be done.
