@@ -1,5 +1,5 @@
 ---
-title: Merchant Portal configuration
+title: Merchant Portal
 description: Understanding Merchant Configuration Settings
 type: Server Side
 layout: default
