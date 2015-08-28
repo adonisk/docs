@@ -12,6 +12,7 @@ The access to the portal is role based and some of the options may only be avail
 #Login
 
 Login to the [Merchant portal](http://d.eze.cc/portal/login/) using your phone number and password. If you do not have access to the portal via your login, please contact Ezetap support.
+
 ![Transactions]({{site.baseurl}}/images/transactions.tiff)
 
 #Users
