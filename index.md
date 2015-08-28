@@ -76,7 +76,7 @@ Please visit [Windows SDK]({{site.baseurl}}/pages/client-windows.html) home page
 
 Merchant portal gives you access to all the transactions posted on Ezetap server as well as other configurations related to merchants and users. Based on the user's role and access privilege, he or she can perform various activities on the transaction like void, refund etc. 
 
-Please visit [Merchant Portal]({{site.baseurl}}/pages/server-potral.html) home page for more details.
+Please visit [Merchant Portal]({{site.baseurl}}/pages/server-portal.html) home page for more details.
 
 ###Notification API###
 Ezetap exposes a Notification API as a callback for customer's to receive notification of payment transactions (success or failure). This can be used for reconciling customer's backend systems with Ezetap payment transaction details. Any references passed to Ezetap SDK at the client end as part of a payment transaction will be sent in via the callback API as well.
