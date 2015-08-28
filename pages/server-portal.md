@@ -13,7 +13,7 @@ The access to the portal is role based and some of the options may only be avail
 
 Login to the [Merchant portal](http://d.eze.cc/portal/login/) using your phone number and password. If you do not have access to the portal via your login, please contact Ezetap support.
 
-![Transactions](docs/images/transactions.tiff)
+![Transactions]({{site.baseurl}}/images/transactions.tiff)
 
 #Users
 Users associated with your merchant profile can be viewed only by the administrator associated with your merchant. A user typically has one or more roles associated, which grant certain privileges in the system
