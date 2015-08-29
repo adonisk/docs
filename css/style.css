@@ -18,6 +18,12 @@
 <!-- CSS goes in the document HEAD or added to your external stylesheet -->
 <style type="text/css">
 
+.img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
 h1, h2, h3, h4 {
   color: black;
 }
