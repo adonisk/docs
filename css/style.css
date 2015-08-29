@@ -18,7 +18,7 @@
 <!-- CSS goes in the document HEAD or added to your external stylesheet -->
 <style type="text/css">
 
-.img {
+img {
     display: block;
     height: auto;
     max-width: 100%;
