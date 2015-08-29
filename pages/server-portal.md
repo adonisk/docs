@@ -13,7 +13,8 @@ The access to the portal is role based and some of the options may only be avail
 
 Login to the [Merchant portal](http://d.eze.cc/portal/login/) using your phone number and password. If you do not have access to the portal via your login, please contact Ezetap support.
 
-![Transactions]({{site.baseurl}}/images/transactions.png)
+<!-- ![Transactions]({{site.baseurl}}/images/transactions.png ) -->
+<img src="{{site.baseurl}}/images/transactions.png" alt="Transactions" style="max-width: 100%;"/>
 
 ###Users
 Users associated with your merchant profile can be viewed only by the administrator associated with your merchant. A user typically has one or more roles associated, which grant certain privileges in the system
@@ -34,5 +35,5 @@ If you are an agent, you will be able to review only those transactions associat
 ###App Keys
 This screen allows an administrator to review application keys that have been generated on behalf of your merchant profile. The application key gives a merchant specific handle for authentication using any custom applications built for your organization, when calling the SDK APIs.
 
-##Assets##
+###Assets
 The assets screen lets an administrator review the status of all Ezetap devices associated with his or her organization. The administrator can activate or deactivate devices, review when a transaction was last performed on a particular device and the user associated with the device.
