@@ -18,7 +18,7 @@ This section is for people who have existing windows applications (ver 7 or 8.1)
 	4. Ezetap device connected to the tablet / desktop via USB
 	5. Downloaded Ezetap Windows SDK
 
-##[Download SDK]({{site.baseurl}}/downloads/client-sdk/windows/ezetap_sdk_windows_0_0_7.zip)##
+##[Download SDK]({{site.download_url}}/client-sdk/windows/ezetap_sdk_windows_0_0_7.zip)##
 
 You can download the latest version of Ezetap Windows SDK by clicking the link above. Ezetap support team will set up and communicate with the necessary Merchant account, AppKey and other details for you.
 

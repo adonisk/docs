@@ -17,7 +17,7 @@ This section is meant for people who have existing android native apps and would
 	4. Ezetap app key or login credentials to Ezetap service
 	5. Ezetap device to test
 
-##[Download SDK]({{site.baseurl}}/downloads/client-sdk/android/ezetap_sdk_android_2_0_7.zip)##
+##[Download SDK]({{site.download_url}}/client-sdk/android/ezetap_sdk_android_2_0_7.zip)##
 
 You can download the latest version of Ezetap Android SDK by clicking the link above. Ezetap support team will set up and communicate with the necessary Merchant account, AppKey and other details for you.
 
