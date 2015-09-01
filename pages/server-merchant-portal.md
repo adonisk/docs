@@ -5,7 +5,7 @@ type: Server Side
 layout: default
 ---
 
-The Merchant portal is a one-stop portal to view all transactions performed under the merchant account as well as merchant account related setups like users, devices and other assets tied to the merchant. Access to the merchant portal is restricted to 'Admin` role only. In addition, some of the merchant configuration options are available only to Ezetap `Support administrators`.
+The Merchant portal is a one-stop portal to view all transactions performed under the merchant account as well as merchant account related setups like users, devices and other assets tied to the merchant. Access to the merchant portal is restricted to `Admin` role only. In addition, some of the merchant configuration options are available only to Ezetap `Support administrators`.
 
 ###Login
 
@@ -41,9 +41,6 @@ A merchant can be configured to allow or disable various payment related operati
 | Minimum Amount For Cash back  | Minimum permissible amount for cash back |
 | Maximum Amount For Cash back  | Maximum permissible amount for cash back | 
 | Allow zero value transactions | Allow zero value transactions |
-
-
-
 
 > Only Ezetap `support administrtors` hav access to the merchant configuration. Customers can request to enable or disable certain features at the merchant level by working with Ezetap support. 
 

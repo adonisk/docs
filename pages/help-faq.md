@@ -8,7 +8,7 @@ type: Help
 <ol>
   {% for post in site.posts %}
     <li>
-			<h5>{{ post.title }}</h5>
+			<b>{{ post.title }}</b>
 			<div class="post-content">
 			{{ post.content }}
     </li>
