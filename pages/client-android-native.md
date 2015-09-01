@@ -21,7 +21,7 @@ This section is meant for people who have existing android native apps and would
 
 You can download the latest version of Ezetap Android SDK by clicking the link above. Ezetap support team will set up and communicate with the necessary Merchant account, AppKey and other details for you.
 
-###Package Components###
+###Package Contents###
 
 The Ezetap SDK package consists of the following components.
 
@@ -33,14 +33,14 @@ The Ezetap SDK package consists of the following components.
 * A document containing *AppKey* and other *ORG* specific information for your organization.
 * `Ezetap Android SDK Implementation Guide` : this document.
 
-### Setting up your Development Environment###
+### Setting up  Dev Environment###
 Upon receiving the Ezetap SDK package, unzip the contents into a directory of choice. Add `ezetap_sdk_2_0_buildnumber.jar` to the `libs` directory of your Android Project.
 
 ![image]({{site.baseurl}}/images/eclipse-sdk-layout.png)
 
 You are now ready to invoke Ezetap APIs using which you can integrate Ezetap's Card, Cash and other capabilities into your application.
 
-## Ezetap APIs - [Complete API Reference]({{site.baseurl}}/api-docs/android/native/index.html)
+## Ezetap API - [Complete API Reference]({{site.baseurl}}/api-docs/android/native/index.html)
 This section gives a brief introduction to the APIs available as part of the Ezetap SDK.
 
   | Name                                                             | Meaning                                                                                                                                                                                                                                                                  |
@@ -53,7 +53,7 @@ This section gives a brief introduction to the APIs available as part of the Eze
 Note: Please refer to the [complete API Javadoc]({{site.baseurl}}/api-docs/android/native/index.html) provided as part of the Ezetap SDK package to
 learn more about the Ezetap APIs. The accompanied sample code contains examples to help understand how to invoke the Ezetap APIs.
 
-## Handling Responses
+### Handling Responses
 
 All Ezetap APIs respond with the follwing result codes
 
@@ -76,7 +76,7 @@ retrieved as a `String Extra` from the `Intent`, using the key `EzeConstants.KEY
 Hint: For Transaction APIs, you may create an instance of [`TransactionDetails`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/TransactionDetails.html) using the JSON data for ease of use.
 
 
-## Updating Ezetap Service App
+### Ezetap Service App
 Access to the Ezetap APIs is provided and facilited by the Ezetap Service App. The Ezetap SDK provides the API interface 
 necessary to call Ezetap APIs via the Service App. As and when Ezetap rectifies issues and enhances the Service App, updates are made available to Ezetap SDK users.
 
@@ -87,13 +87,13 @@ It is recommended that calling apps periodically check for updates and stay curr
 
 > Use this API to check if there is an update to the Ezetap Service App. It is recommended that this API be called by application implementations periodically. For example, you may choose to call this API at application start time or at login time.
 
-### EzetapAppUpdateResponse
+#### EzetapAppUpdateResponse
 A bean representation of the response from the Ezetap server to the `checkForUpdate` API call. Please refer to the [javadoc]({{site.baseurl}}/api-docs/android/native/index.html) to know more about the attributes available.
 
-### EzetapDownloadUtils
+#### EzetapDownloadUtils
 Provides utilities to download and install updates to the Ezetap Service App. Create an instance of [`EzetapDownloadUtils`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapDownloadUtils.html) and call the `start()` method. This will initiate the download and prompt the user to update, if one is found.
 
-## Incomplete Transactions
+### Incomplete Transactions
 
 The Ezetap Service App and SDK combination provides for handling of incomplete transactions and transactions for which no response is received.  Failure to receive a response may occur due to
 
@@ -113,7 +113,7 @@ In all the above cases, the Ezetap service app prompts the user that an `Incompl
 
 >  Use this API to check if there is an incomplete transaction. Any card transaction that was initiated, but failed to receive a response due to any of the conditions listed above will be detected and the user will be guided through the steps to complete the transaction.
 
-### Recommendation
+#### Recommendation
 
 Ezetap strongly recommends that application implementations leverage the use of the above API to check for any incomplete previous transactions.
 
@@ -124,7 +124,7 @@ This is especially important in cases where Ezetap is primarily used for Card pa
 * in cases where Cash is handled outside of the Ezetap system, at the time when Cash is chosen as a payment option
 
 
-## Typical API Usage
+### Typical API Usage
 
 All these APIs below are in [`EzetapPayApi`]({{site.baseurl}}/api-docs/android/native/com/ezetap/sdk/EzetapPayApi.html).
 

@@ -4,17 +4,6 @@ description: Home for Ezetap integration related documents
 layout: default
 ---
 
-####Table of Contents####
-
-1. Overview
-2. Client Side
-* Android SDK
-* Windows SDK
-
-3. Server Side
-* Merchant Portal
-* Notification API
-
 ##Overview##
 
 Ezetap offers a mobile point of sale (POS) solution that enables customers to collect payment anywhere, anytime and in any instrument form (cash, credit/debit card, cheque or demand draft) directly from a mobile phone. 
