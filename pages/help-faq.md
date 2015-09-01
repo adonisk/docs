@@ -8,9 +8,10 @@ type: Help
 <ol>
   {% for post in site.posts %}
     <li>
-			<b>{{ post.title }}</b>
-			<div class="post-content">
+		<b>{{ post.title }}</b>
+		<div class="post-content">
 			{{ post.content }}
+		</div>
     </li>
   {% endfor %}
 </ol>
