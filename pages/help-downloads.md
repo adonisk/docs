@@ -12,7 +12,7 @@ type: Help
 		Windows PoS: [ezetap_pos_windows_0_0_7]({{site.download_url}}/basic-pos/windows/ezetap_pos_windows_0_0_7.zip)##
 	</li>
 	<li>
-		Android PoS: [ezetap_pos_android_2_0_7]({{site.download_url}}/basic-pos/android/ezetap_pos_android_2_0_7.zip)##
+		Android PoS: [ezetap_pos_android_2_0_7]({{site.download_url}}/basic-pos/android/ezetap_pos_android_2_0_7.apk)##
 	</li>
 </ol>
 
