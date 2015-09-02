@@ -18,6 +18,14 @@ type: Help
 
 <script language="javascript"> 
 function togglePost( p_id ) {
+
+	// first close all elements
+	var elems = document.getElementsByClassName('post-content');
+	for (i in elems) {
+		elems[i].style.display = "none";
+	}
+
+	// then, toggle the element clicked.
 	var ele = document.getElementById(p_id);
 	if(ele.style.display == "block") { ele.style.display = "none"; }
 	else { ele.style.display = "block"; }
