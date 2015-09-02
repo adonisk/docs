@@ -8,8 +8,8 @@ type: Help
 <ol>
   {% for post in site.posts %}
     <li>
-		<a href="javascript:togglePost('p_{{ post.id }}');"><b>{{ post.title }}</b></a>
-		<div id ="p_{{ post.id }}" style="display:none" class="post-content">
+		<a href="javascript:togglePost('{{ post.id }}');"><b>{{ post.title }}</b></a>
+		<div id ="{{ post.id }}" style="display:none" class="post-content">
 			{{ post.content }}
 		</div>
     </li>
@@ -20,14 +20,15 @@ type: Help
 function togglePost( p_id ) {
 
 	// first close all elements
-	var elems = document.getElementsByClassName('post-content');
-	for (i in elems) {
-		elems[i].style.display = "none";
+	var elems = document.querySelectorAll("post-content");
+    i = 0;
+	for (i; i < elems.length; i++) {
+    	elems[i].style.display = "none";
 	}
 
 	// then, toggle the element clicked.
-	var ele = document.getElementById(p_id);
-	if(ele.style.display == "block") { ele.style.display = "none"; }
-	else { ele.style.display = "block"; }
+	var elem = document.getElementById(p_id);
+	if(elem.style.display == "block") { elem.style.display = "none"; }
+	else { elem.style.display = "block"; }
 } 
 </script>
