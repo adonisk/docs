@@ -20,9 +20,11 @@ type: Help
 function togglePost( p_id ) {
 
 	// first close all elements
-	var elems = document.querySelectorAll("post-content");
-    i = 0;
-	for (i; i < elems.length; i++) {
+	var elems = document.querySelectorAll("post-content"),
+    i = 0,
+    len = elems.length;
+
+	for (i; i < len; i++) {
     	elems[i].style.display = "none";
 	}
 
