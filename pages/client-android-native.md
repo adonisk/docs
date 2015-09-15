@@ -160,7 +160,7 @@ All these APIs below are in [`EzetapPayApi`]({{site.baseurl}}/api-docs/android/n
       String message = "";
       String title = "";
       if(AppConstants.REQ_CODE_PAY_CARD == requestCode){
-        title = "Attach Signature";
+        title = "Card Payment";
         switch (resultCode) {
 
           case EzeConstants.RESULT_SUCCESS:
