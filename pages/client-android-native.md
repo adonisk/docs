@@ -135,3 +135,157 @@ All these APIs below are in [`EzetapPayApi`]({{site.baseurl}}/api-docs/android/n
   | `getTransactionHistory` | To fetch the transaction history of the user.                                                                                                                                                                                                                                                                                       |
   | `startVoidTransaction`  | To perform void on existing unsettled transaction.                                                                                                                                                                                                                                                                                  |
 
+
+### Sample Code 
+
+#### Start Card Payment
+```java
+
+//Sample: call
+
+EzetapPayApis.create(ApplicationActivity.API_CONFIG).startCardPayment(this,
+    AppConstants.REQ_CODE_PAY_CARD, YourUserName,
+    amount,
+    0,
+    orderNumber, 0, customerMobileNumber,
+    CustomerEmail, null);
+
+//When using this API call, Ezetap SDK will create a intent to invoke Ezetap Service Application to do card payment.
+
+
+//Sample:Response Handling
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+  Log.v(DEBUG_TAG, "ResultCode=" + resultCode);
+  String message = "";
+  String title = "";
+  if(AppConstants.REQ_CODE_PAY_CARD == requestCode){
+    title = "Attach Signature";
+    switch (resultCode) {
+
+      case EzeConstants.RESULT_SUCCESS:
+        message = "Transaction Successful.";
+        if (data != null && data.hasExtra(EzeConstants.KEY_RESPONSE_DATA)) {
+          try {
+            TransactionDetails aTxn = TransactionDetails.getTransactionDetails(new JSONObject(data.getStringExtra(EzeConstants.KEY_RESPONSE_DATA)));
+            message += "\nAmo   unt : " + String.format("%.2f", aTxn.getTotalAmount());
+            message += "\nTxn :" + aTxn.getTransactionId();
+            message = "Auth : " + aTxn.getAuthCode();
+          } catch (Exception e) {
+          }
+        }
+        break;
+
+      case EzeConstants.RESULT_FAILED:
+      default:
+        message = "Transaction failed.";
+        if (data != null && data.hasExtra(EzeConstants.KEY_RESPONSE_DATA)) {
+          try {
+            JSONObject aJson = new JSONObject(data.getStringExtra(EzeConstants.KEY_RESPONSE_DATA));
+            message = "Error:" + aJson.get(EzeConstants.KEY_ERROR_CODE);
+            message += "\n" + aJson.get(EzeConstants.KEY_ERROR_MESSAGE);
+          } catch (Exception e) {
+          }
+        }
+
+        break;
+    }
+  }
+
+  showAlertDialog(this, title, message, false, true);
+}
+
+```
+
+#### Check for Incomplete Transaction Status 
+```java
+
+//Sample: call 
+EzetapPayApis.create(ApplicationActivity.API_CONFIG).checkForIncompleteTransaction(this, AppConstants.REQ_CODE_CHECK_INCOMPLETE_TXN, YourUserName);
+
+//Sample:Response Handling
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+  String message = "";
+  String title = "";
+  if(AppConstants.REQ_CODE_CHECK_INCOMPLETE_TXN == requestCode){
+    title = "Incomplete Txn Check";
+    switch (resultCode) {
+      case EzeConstants.RESULT_SUCCESS:
+        if (data != null && data.hasExtra(EzeConstants.KEY_RESPONSE_DATA)) {
+          message = "Incomplete txn check completed successfully";
+          try {
+            TransactionDetails aTxn = TransactionDetails.getTransactionDetails(new JSONObject(data.getStringExtra(EzeConstants.KEY_RESPONSE_DATA)));
+            message = "\nAuth : " + aTxn.getAuthCode();
+            message += "\nAmount : " + String.format("%.2f", aTxn.getTotalAmount());
+            message += "\nTxn :" + aTxn.getTransactionId();
+          } catch (Exception e) {
+            Log.v(DEBUG_TAG, "REQ_CODE_CHECK_INCOMPLETE_TXN=" + e);
+            e.printStackTrace();
+          }
+        } else {
+          message = "Incomplete txn check completed successfully. No pending transaction available.";
+        }
+        break;
+      case EzeConstants.RESULT_FAILED:
+      default:
+        message = "Incomplete txn check is canceled by user or failed to reach server";
+    }
+  }
+  showAlertDialog(this, title, message, false, true);
+}
+```
+
+#### Attach Signature
+Note that you don't generally need to do anything for signature capture. In case you already capture
+signature as part of your application code and want to reuse this for card signature, please contact
+Ezetap support - we will enable accepting your signature for your app-key. Once enabled, here is how
+you can submit your signature captured as bitmap to Ezetap server and attach it to a transaction.
+
+```java
+
+//Sample: call 
+Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.sign); 
+ //this loads up a static png. You should pass the Bitmap
+ //obtained from your Canvas and pass that to the API. 
+
+ EzetapPayApis.create(ApplicationActivity.API_CONFIG).attachSignature(this,
+   AppConstants.REQ_CODE_ATTACH_SIGN,
+   ApplicationActivity.userName, transactionId,  b, CompressFormat.PNG);
+
+ //Note: transactionId is the id of the transaction done on Ezetap. This is given back to you in the paycard API response
+
+//Sample: Response Handling
+//  --- CAUTION: A signature submission failure DOES NOT MEAN payment will be cancelled. 
+//               On failure, try again based on the reason - if error is that transactionId is wrong, 
+//               ensure you send the correct transaction id. Otherwise, resend the signature.
+//               Again, do not mark your operation as payment-unsuccessful in this case! Card has 
+//               already been charged.
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+  String message = "";
+  String title = "";
+  if(AppConstants.REQ_CODE_ATTACH_SIGN == requestCode){
+    title = "Attach Signature";
+    switch (resultCode) {
+      case EzeConstants.RESULT_SUCCESS:
+        message = "Signature Attached Successfully";
+        break;
+      case EzeConstants.RESULT_FAILED:
+      default:
+        message = "Signature Attachment failed";
+        if (data != null && data.hasExtra(EzeConstants.KEY_RESPONSE_DATA)) {
+          EzetapResponse serverResponse = new EzetapResponse(data.getStringExtra(EzeConstants.KEY_RESPONSE_DATA));
+          try {
+            if (!serverResponse.isSuccess()) {
+              message = "Signature Attachment Failed\n reason :" + serverResponse.getErrorMessage();
+            }
+          } catch (Exception e) {
+          }
+        }
+    }
+  }
+  showAlertDialog(this, title, message, false, true);
+}
+```
