@@ -18,7 +18,7 @@ This section is for people who have existing windows applications (ver 7 or 8.1)
 	4. Ezetap device connected to the tablet / desktop via USB
 	5. Downloaded Ezetap Windows SDK
 
-##[Download SDK]({{site.download_url}}/client-sdk/windows/ezetap_sdk_windows_0_0_7.zip)##
+##[Download SDK]({{site.download_url}}/client-sdk/windows/eze_sdk_win_0_0_7.zip)##
 
 You can download the latest version of Ezetap Windows SDK by clicking the link above. Ezetap support team will set up and communicate with the necessary Merchant account, AppKey and other details for you.
 
@@ -26,9 +26,11 @@ You can download the latest version of Ezetap Windows SDK by clicking the link a
 
 The Ezetap Windows SDK package contains the following components.
 
-1. `ezetap_pos_windows_0_0_7.exe`: This self extracting executable installs a basic windows pos application as well as some core binaries required for the windows SDK to integrate Ezetap payment solution into your application.
-2. `ezetap_api_windows_0_0_7.zip`: This zip file contains a .NET DLL along with dependent libraries. Extract this set of DLLs into a folder visible to your Visual Studio project and add them as dependent libraries in your Visual Studio project.
-3. The Ezetap Windows SDK is compatible with `DotNET version 4.5 or higher` 
+1. `eze_pos_win_0_0_7.exe`: This self extracting executable installs a basic windows pos application as well as some core binaries required for the windows SDK to integrate Ezetap payment solution into your application.
+2. `eze_api_win_0_0_7.zip`: This zip file contains a .NET DLL along with dependent libraries. Extract this set of DLLs into a folder visible to your Visual Studio project and add them as dependent libraries in your Visual Studio project.
+3. `eze_api_win_sample_0_0_7.zip`: This zip file contains a code sample for how to use the ezetap windows API.
+
+Note: The Ezetap Windows SDK is compatible with `DotNET version 4.5 or higher` 
 
 ###Visual Studio Setup###
 
