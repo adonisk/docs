@@ -36,13 +36,13 @@ A merchant can be configured to allow or disable various payment related operati
 | Enable Cheque Payment         | Enable or disable cheque payment |
 | Enable SMS Receipt For Cheque | Enable or disable sending SMS receipt for cheque transactions |
 | Enable Refund                 | Enable refunds |
-| Enable EMI                    | Enable EMI option |
+| Enable EMI               | Enable EMI option |
 | Enable Cash Back              | Enable or disable cash bach for transactions |
 | Minimum Amount For Cash back  | Minimum permissible amount for cash back |
 | Maximum Amount For Cash back  | Maximum permissible amount for cash back | 
 | Allow zero value transactions | Allow zero value transactions |
 
-> Only Ezetap `support administrtors` hav access to the merchant configuration. Customers can request to enable or disable certain features at the merchant level by working with Ezetap support. 
+> Only Ezetap `support administrators` have access to the merchant configuration. Customers can request to enable or disable certain features at the merchant level by working with Ezetap support. 
 
 
 ###App Keys
