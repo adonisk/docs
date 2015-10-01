@@ -9,10 +9,10 @@ layout: default
 
 This document describes how Ezetap customers can integrate with  the `Ezetap Notification API` to receive notifications when payment transactions are posted in the Ezetap server. 
 
-###What is the Ezetap Notification API?
+### What is the Ezetap Notification API?
 For every transaction that hits the Ezetap Payment platform, the Ezetap server has the ability to update an external system that a payment transaction has happened.
 
-###Why Ezetap Notifications API?
+### Why Ezetap Notifications API?
 Customers may wish to reconcile payment information with their internal or backend systems.  Payment information that can be tied back to the original transaction reference, that too in real time provides immense value to the originating business process.  
 
 While conceptually this can be achieved by providing a means to query the Ezetap platform with a transaction reference; Ezetap recommends and provides a simpler interface namely the Notifications API to push the data to any external system defined by the customer.
