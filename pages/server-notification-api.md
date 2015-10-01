@@ -9,44 +9,44 @@ layout: default
 
 This document describes how Ezetap customers can integrate with  the `Ezetap Notification API` to receive notifications when payment transactions are posted in the Ezetap server. 
 
-#What is the Ezetap Notification API?
+###What is the Ezetap Notification API?
 For every transaction that hits the Ezetap Payment platform, the Ezetap server has the ability to update an external system that a payment transaction has happened.
 
-#Why Ezetap Notifications API?
+###Why Ezetap Notifications API?
 Customers may wish to reconcile payment information with their internal or backend systems.  Payment information that can be tied back to the original transaction reference, that too in real time provides immense value to the originating business process.  
 
 While conceptually this can be achieved by providing a means to query the Ezetap platform with a transaction reference; Ezetap recommends and provides a simpler interface namely the Notifications API to push the data to any external system defined by the customer.
 
-# Notification Categories
+### Notification Categories
 Ezetap provides notifications for the following transaction types: 
 Authorization
 Void
 
 
-#  Customer Use Cases for the Notifications API
+### Customer Use Cases for the Notifications API
 
-##Transaction Reconciliation
+####Transaction Reconciliation
 An e-commerce company was able to leverage Ezetap's notification API to auto-reconcile, in real time, COD payments against the order number. When the delivery agent processes a payment, be it cash or card, an order reference number is passed from the Ezetap mobile application to the Ezetap server. A notification is generated for the payment transaction, that updates the backend server of the e-commerce company with required fields to process the payment against the order.
 
-##Insurance Policy Receipting
+####Insurance Policy Receipting
 An insurance company was able to move to immediate policy issuance by equipping their agents with the Ezetap solution. The traditional insurance policy follows the `Cheque Collection -> Deposit -> Realization -> Issuance` cycle. 
 
 With Ezetap's solution, they were instead able to process credit card payments at the customer's doorstep; leverage Ezetap's notification API to send payment information from the Ezetap server to the insurance company's server. Essentially `Card Payment -> Immediate Payment Reconciliation -> Immediate Policy Issuance` resulted in significantly enhanced customer experience.
 
-##Commission Calculation
+####Commission Calculation
 //Need some specifics on this
 
-##Post transaction workflow
+####Post transaction workflow
 Successful payments often trigger critical follow on business processes within an organization function. Notifications sent from the Ezetap server can be utilized to trigger specific business process workflows in the merchant's application suite.
 
-##Customer Communication
+####Customer Communication
 Notification API, if enabled will post details of every transaction whether successful, failed or voided to a customer specified API end point.
 
-#Integrating with the Ezetap Notifications API
+###Integrating with the Ezetap Notifications API
 
 The steps for enabling notifications for demo and production environments are listed here. The steps are described in detail in subsequent sections.
 
-###Demo
+####Demo
 
 | Step       | Details |
 |------------|----------------|
@@ -61,14 +61,14 @@ The steps for enabling notifications for demo and production environments are li
 
 <!-- Either use lists or add details here to articulate details of each step above -->
 
-###Production
+####Production
 
 | Step       | Details |
 |------------|----------------|
 | Setup merchant | Contact Ezetap to setup your merchant information in the **Production** environment |
 | Enable notifications | Contact Ezetap to configure your merchant profile to accept notifications from Ezetap. IP whitelisting required. |
 
-#API Specification
+###API Specification
 
 Customer should expose a `HTTP/POST` end point accepting `JSON message body` 
 <!-- Update to use NGROK instead -->
@@ -81,7 +81,7 @@ Ezetap sends a POST message on the customer's API end point and waits for a HTTP
 
 > NOTE: Over time, the Notification API may be upgraded with additional parameters. These additional parameters will be optional and will not impact existing customers. But the customer's API end point should be able to handle (and ignore) these additional optional parameters. This is to ensure merchant's application doesn't break when new attributes are introduced in the notification API.
 
-## API Documentation ##
+#### API Documentation ####
 
 The API end point needs to conform to the following specification. 
 
@@ -95,7 +95,7 @@ The following headers are sent in the HTTP request.
 JSON structure for different events and processes are documented below. Some fields are optional, for e.g. Cheque payment related fields (bank details etc) will be populated only for cheque transactions. Card related fields will be populated only for Card payment.
 
 
-### JSON Specification###
+#### JSON Specification###
 
 JSON that will be posted will have this structure.
 
@@ -135,7 +135,7 @@ JSON that will be posted will have this structure.
 		}
 
 
-###Field Descriptions###
+####Field Descriptions###
                    
 | Field | Data type | Description |
 |-------|---------|-------------|
