@@ -33,8 +33,8 @@ An insurance company was able to move to immediate policy issuance by equipping 
 
 With Ezetap's solution, they were instead able to process credit card payments at the customer's doorstep; leverage Ezetap's notification API to send payment information from the Ezetap server to the insurance company's server. Essentially `Card Payment -> Immediate Payment Reconciliation -> Immediate Policy Issuance` resulted in significantly enhanced customer experience.
 
-####Commission Calculation
-//Need some specifics on this
+<!--####Commission Calculation
+//Need some specifics on this-->
 
 ####Post transaction workflow
 Successful payments often trigger critical follow on business processes within an organization function. Notifications sent from the Ezetap server can be utilized to trigger specific business process workflows in the merchant's application suite.
