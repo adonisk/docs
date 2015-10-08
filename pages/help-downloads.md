@@ -7,7 +7,7 @@ type: Help
 
 ### Ezetap Basic PoS 
 
-####[Windows PoS - version 0.0.7]({{site.download_url}}/basic-pos/windows/ezetap_pos_windows_0_0_7.exe)
+####[Windows PoS - version 1.0]({{site.download_url}}/basic-pos/windows/ezetap_pos_windows_1_0_0.exe)
 
 ####[Android PoS - version 2.0.7]({{site.download_url}}/basic-pos/android/ezetap_pos_android_2_0_7.apk)
 
