@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Redirecting to Ezetap Developers portal.</title>
+		<style>
+			* {margin: 0;}
+			html, body{
+				height: 100%;
+			}
+			.wrapper {
+				min-height: 100%;
+				height: auto !important;
+				height: 100%;
+				margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
+			}
+			.footer, .push {
+				height: 142px; /* .push must be the same height as .footer */
+			}
+			p,.countdown{
+				text-align: center;
+				margin-top: 30px;
+				font-family: sans-serif;
+				font-style: normal;
+				font-size: xx-large;
+			}
+			h3{
+				text-align: center;
+				font-family: sans-serif;
+				font-style: normal;
+				font-size: large;
+			}
+			.spanContainer{
+				text-align: center;
+				margin-top: 30px;
+			}
+			.spanContainer span{
+				text-align: center;
+				font-family: sans-serif;
+				font-style: normal;
+				font-size: x-large;
+			}
+			header{
+				background-color: #222;
+				width: 100%;
+				padding:30px
+			}
+		</style>
+		<script>
+			document.addEventListener('DOMContentLoaded',function(){
+				(function countdown(remaining) {
+					if(remaining === 0){
+						window.location='http://developers.ezetap.com/';
+						return;
+					}
+					document.getElementById('countdown').innerHTML =""+remaining +"sec";
+					setTimeout(function(){ countdown(remaining - 1); }, 1000);
+				})(5);
+			})
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">		
+			<header>
+				<img alt="brand" src="images/eze-logo-white.png"/>
+			</header>
+			<p>Welcome to Ezetap, please wait while we redirect you to our new Portal.</p>
+			<div class="spanContainer">				
+				<span class="countdown">Redirecting in </span><span class="countdown" id="countdown"></span>
+			</div>
+			<div class="push"></div>
+		</div>
+		<div class="footer">
+			<h3>
+				© 2015 <a href="http://www.ezetap.com" target="_blank">Ezetap Mobile Solutions Private Limited.</a>
+			</h3>
+		</div>
+	</body>
+</html>
